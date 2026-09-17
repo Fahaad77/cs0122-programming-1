@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Java data type hierarchy</title>
+  <desc id="desc">Data Type splits into Primitive and Non-Primitive. Primitive splits into Numbers, Characters, and Logical. Numbers splits into Integer and Floating-point. Integer includes byte, short, int, and long. Floating-point includes float and double. Characters includes char. Logical includes boolean. Non-Primitive includes String, Array, and etc.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .line { fill: none; stroke: #4f7fca; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow { fill: #4f7fca; }
+      .label { fill: #0b1624; font-family: Inter, Arial, sans-serif; font-size: 44px; font-weight: 650; text-anchor: middle; }
+      .root { font-size: 46px; font-weight: 750; }
+      .leaf { font-size: 34px; font-weight: 600; }
+    </style>
+    <marker id="tip" viewBox="0 0 12 12" refX="6" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path class="arrow" d="M 0 0 L 12 6 L 0 12 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+
+  <text class="label root" x="800" y="78">Data Type</text>
+
+  <path class="line" d="M800 96 V130 H495 V180" marker-end="url(#tip)"/>
+  <path class="line" d="M800 130 H1135 V180" marker-end="url(#tip)"/>
+  <text class="label" x="495" y="230">Primitive</text>
+  <text class="label" x="1135" y="230">Non-Primitive</text>
+
+  <path class="line" d="M495 250 V292 H295 V342" marker-end="url(#tip)"/>
+  <path class="line" d="M495 250 V292 H495 V342" marker-end="url(#tip)"/>
+  <path class="line" d="M495 292 H695 V342" marker-end="url(#tip)"/>
+  <text class="label" x="295" y="397">Numbers</text>
+  <text class="label" x="495" y="397">Characters</text>
+  <text class="label" x="695" y="397">Logical</text>
+
+  <path class="line" d="M495 416 V452" marker-end="url(#tip)"/>
+  <text class="label leaf" x="495" y="505">char</text>
+
+  <path class="line" d="M695 416 V452" marker-end="url(#tip)"/>
+  <text class="label leaf" x="695" y="505">boolean</text>
+
+  <path class="line" d="M295 416 V520 H205 V570" marker-end="url(#tip)"/>
+  <path class="line" d="M295 520 H445 V570" marker-end="url(#tip)"/>
+  <text class="label" x="205" y="632">Integer</text>
+  <text class="label" x="445" y="632">Floating-point</text>
+
+  <path class="line" d="M205 654 V685 H72 V740" marker-end="url(#tip)"/>
+  <path class="line" d="M205 685 H160 V740" marker-end="url(#tip)"/>
+  <path class="line" d="M205 685 H250 V740" marker-end="url(#tip)"/>
+  <path class="line" d="M205 685 H338 V740" marker-end="url(#tip)"/>
+  <text class="label leaf" x="72" y="803">byte</text>
+  <text class="label leaf" x="160" y="803">short</text>
+  <text class="label leaf" x="250" y="803">int</text>
+  <text class="label leaf" x="338" y="803">long</text>
+
+  <path class="line" d="M445 654 V687 H390 V740" marker-end="url(#tip)"/>
+  <path class="line" d="M445 687 H500 V740" marker-end="url(#tip)"/>
+  <text class="label leaf" x="390" y="803">float</text>
+  <text class="label leaf" x="500" y="803">double</text>
+
+  <path class="line" d="M1135 250 V292 H965 V342" marker-end="url(#tip)"/>
+  <path class="line" d="M1135 250 V292 H1135 V342" marker-end="url(#tip)"/>
+  <path class="line" d="M1135 292 H1305 V342" marker-end="url(#tip)"/>
+  <text class="label" x="965" y="397">String</text>
+  <text class="label" x="1135" y="397">Array</text>
+  <text class="label" x="1305" y="397">etc.</text>
+</svg>
