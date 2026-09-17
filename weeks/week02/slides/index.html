@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 2 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 2 - Hook</p><h1>Where does a program keep information?</h1><p>Programs remember names, ages, prices, answers, and status values by placing them in named spaces in memory.</p></section>
+    <section class="slide" id="slide-2"><p class="kicker">Roadmap</p><h2>Today's flow</h2><div class="flow"><span class="node">Name</span><span class="arrow">-&gt;</span><span class="node">Type</span><span class="arrow">-&gt;</span><span class="node">Store</span><span class="arrow">-&gt;</span><span class="node">Input</span><span class="arrow">-&gt;</span><span class="node">Output</span><span class="arrow">-&gt;</span><span class="node">Trace</span></div></section>
+    <section class="slide" id="slide-3"><p class="kicker">Learning Goals</p><h2>By the end of Week 2</h2><ul><li>Use valid identifiers and avoid keywords.</li><li>Choose primitive data types and <code>String</code>.</li><li>Write declarations, assignments, initializations, and constants.</li><li>Read console input with <code>Scanner</code>.</li><li>Trace values and debug beginner type/input errors.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Variables and Memory</h2><p>Give values names so the program can remember and use them.</p></section>
+    <section class="slide" id="slide-4"><p class="kicker">Visual Model</p><h2>Memory spaces have three features</h2><div class="diagram memory-row"><span><strong>Identifier</strong><code>studentAge</code><em>name</em></span><span><strong>Data type</strong><code>int</code><em>kind of value</em></span><span><strong>State</strong><code>variable/final</code><em>can change?</em></span><span><strong>Value</strong><code>19</code><em>stored data</em></span></div></section>
+    <section class="slide" id="slide-5"><p class="kicker">Identifiers</p><h2>Identifiers name things in a program</h2><p>Variables, constants, classes, and methods all use identifiers.</p><div class="callout">A good identifier helps the reader understand what the value represents.</div></section>
+    <section class="slide" id="slide-6"><p class="kicker">Rules</p><h2>Valid Java identifiers</h2><ul><li>May contain letters, digits, underscore, and dollar sign.</li><li>Must not begin with a digit.</li><li>Must not contain spaces.</li><li>Must not be a Java keyword.</li><li>Java is case-sensitive.</li></ul></section>
+    <section class="slide" id="slide-7"><p class="kicker">Classify</p><h2>Valid or invalid?</h2><table class="simple-table"><tr><th>Identifier</th><th>Decision</th><th>Reason</th></tr><tr><td><code>MonthlySalary</code></td><td></td><td></td></tr><tr><td><code>4example</code></td><td></td><td></td></tr><tr><td><code>student mark</code></td><td></td><td></td></tr><tr><td><code>class</code></td><td></td><td></td></tr><tr><td><code>variable3</code></td><td></td><td></td></tr></table></section>
+    <section class="slide" id="slide-8"><p class="kicker">Keywords</p><h2>Keywords are reserved words</h2><p>Words such as <code>class</code>, <code>public</code>, <code>static</code>, <code>void</code>, <code>int</code>, <code>double</code>, and <code>final</code> already mean something to the compiler.</p><p class="small">Do not use keywords as variable names.</p></section>
+    <section class="slide" id="slide-9"><p class="kicker">Variables</p><h2>A variable stores a value</h2><pre><code>int age = 19;
+double gpa = 4.6;
+String name = "Sara";</code></pre><p class="small">The value may change while the program runs.</p></section>
+    <section class="slide slide-section"><p class="kicker">Section 02</p><h2>Java Data Types</h2><p>Choose the right kind of storage for each value.</p></section>
+    <section class="slide" id="slide-10"><p class="kicker">Data Types</p><h2>Every variable has a type</h2><p>A data type tells Java what kind of value is stored and what operations make sense for that value.</p><div class="flow"><span class="node">Type</span><span class="arrow">-&gt;</span><span class="node">Memory size</span><span class="arrow">-&gt;</span><span class="node">Allowed values</span><span class="arrow">-&gt;</span><span class="node">Allowed operations</span></div></section>
+    <section class="slide slide-visual" id="slide-11"><p class="kicker">Visual Overview</p><h2>Java Data Types: The Big Picture</h2><div class="visual-frame"><img src="../../../assets/images/week02/data-types-hierarchy.svg" alt="Hierarchy showing Java data types divided into primitive and non-primitive categories. Primitive types include byte, short, int, long, float, double, char, and boolean. Non-primitive examples include String and arrays."></div></section>
+    <section class="slide" id="slide-12"><p class="kicker">Primitive vs Reference</p><h2>Two beginner-level groups</h2><div class="two-col"><div><h3>Primitive</h3><p>Java has exactly eight primitive types:</p><p><code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>boolean</code></p></div><div><h3>Non-primitive / reference</h3><p><code>String</code> and arrays are not primitive types.</p><p class="small">For now, treat them as richer values that Java stores and uses through references. Objects and classes come later.</p></div></div></section>
+    <section class="slide" id="slide-13"><p class="kicker">Primitive Types</p><h2>Java's eight primitive types</h2><table class="simple-table"><tr><th>Kind</th><th>Types</th><th>How beginners choose</th></tr><tr><td>Small to large whole numbers</td><td><code>byte short int long</code></td><td>Use <code>int</code> for normal counts; use <code>long</code> for very large counts.</td></tr><tr><td>Decimal numbers</td><td><code>float double</code></td><td>Use <code>double</code> for normal decimal calculations.</td></tr><tr><td>One character</td><td><code>char</code></td><td>Use single quotes, such as <code>'A'</code>.</td></tr><tr><td>True/false</td><td><code>boolean</code></td><td>Use <code>true</code> or <code>false</code>.</td></tr></table></section>
+    <section class="slide" id="slide-14"><p class="kicker">Visual Model</p><h2>Primitive type families</h2><div class="diagram"><div class="flow"><span class="node">Whole numbers<br><code>byte</code> <code>short</code> <code>int</code> <code>long</code></span><span class="arrow">|</span><span class="node">Floating point<br><code>float</code> <code>double</code></span><span class="arrow">|</span><span class="node">Single symbol<br><code>char</code></span><span class="arrow">|</span><span class="node">Truth value<br><code>boolean</code></span></div></div><p class="small"><code>int</code> and <code>double</code> are common defaults because they fit most beginner programs.</p></section>
+    <section class="slide" id="slide-15"><p class="kicker">Storage Snapshot</p><h2>Primitive storage at a glance</h2><table class="simple-table"><tr><th>Type</th><th>Stores</th><th>Common size</th></tr><tr><td><code>byte</code></td><td>Integer</td><td>1 byte</td></tr><tr><td><code>short</code></td><td>Integer</td><td>2 bytes</td></tr><tr><td><code>int</code></td><td>Integer</td><td>4 bytes</td></tr><tr><td><code>long</code></td><td>Integer</td><td>8 bytes</td></tr><tr><td><code>float</code></td><td>Decimal</td><td>4 bytes</td></tr><tr><td><code>double</code></td><td>Decimal</td><td>8 bytes</td></tr><tr><td><code>char</code></td><td>Character</td><td>2 bytes</td></tr><tr><td><code>boolean</code></td><td><code>true</code> or <code>false</code></td><td>JVM dependent</td></tr></table></section>
+    <section class="slide" id="slide-16"><p class="kicker">Reference Type</p><h2><code>String</code> stores text</h2><pre><code>String course = "CS0122";
+String message = "Welcome to Java";</code></pre><p class="small"><code>String</code> begins with an uppercase letter because it is not a primitive type.</p></section>
+    <section class="slide" id="slide-17"><p class="kicker">Literals</p><h2>Literal values have forms</h2><table class="simple-table"><tr><th>Value</th><th>Type idea</th></tr><tr><td><code>42</code></td><td>whole number</td></tr><tr><td><code>3.14</code></td><td>decimal number</td></tr><tr><td><code>'A'</code></td><td>single character</td></tr><tr><td><code>"A"</code></td><td>string text</td></tr><tr><td><code>true</code></td><td>boolean</td></tr></table></section>
+    <section class="slide slide-section"><p class="kicker">Section 03</p><h2>Declare, Assign, Initialize</h2><p>Separate creating a variable from placing a value inside it.</p></section>
+    <section class="slide" id="slide-18"><p class="kicker">Statements</p><h2>Declaration, assignment, initialization</h2><pre><code>int score;       // declaration
+score = 10;     // assignment
+int level = 2;  // initialization</code></pre><p class="small">A declaration creates the memory space. Assignment places a value into it.</p></section>
+    <section class="slide" id="slide-19"><p class="kicker">Variables Change</p><h2>New values replace old values</h2><pre><code>int seats = 20;
+seats = 18;
+seats = 21;</code></pre><p>The variable <code>seats</code> holds only the current value.</p></section>
+    <section class="slide" id="slide-20"><p class="kicker">Constants</p><h2><code>final</code> means do not change</h2><pre><code>final String COURSE_CODE = "CS0122";
+final double PI = 3.14159265;</code></pre><p class="small">Constant names are commonly uppercase with underscores between words.</p></section>
+    <section class="slide" id="slide-21"><p class="kicker">Conventions</p><h2>Readable naming style</h2><div class="two-col"><div><h3>Variables</h3><p><code>studentName</code>, <code>numberOfStudents</code></p></div><div><h3>Constants</h3><p><code>COURSE_CODE</code>, <code>MAX_SCORE</code></p></div></div></section>
+    <section class="slide" id="slide-22"><p class="kicker">Type Compatibility</p><h2>The value must match the type</h2><pre><code>int number = 5;       // OK
+int number = "five";  // type error
+char grade = 'A';     // OK
+char grade = "A";     // type error</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 04</p><h2>Console I/O</h2><p>Display values and read keyboard input with <code>Scanner</code>.</p></section>
+    <section class="slide" id="slide-23"><p class="kicker">Output</p><h2>Standard output</h2><pre><code>System.out.print("Name: ");
+System.out.println(name);
+System.out.println("Age: " + age);</code></pre><p><code>+</code> joins text with values when one side is a <code>String</code>.</p></section>
+    <section class="slide" id="slide-24"><p class="kicker">Whitespace</p><h2>Spaces in strings are real output</h2><pre><code>System.out.print("Hello");
+System.out.print("Java");
+System.out.print("Hello ");
+System.out.print("Java");</code></pre><p class="small">Spaces outside strings mostly help readability. Spaces inside strings are printed.</p></section>
+    <section class="slide" id="slide-25"><p class="kicker">Input</p><h2>Standard input with <code>Scanner</code></h2><div class="diagram"><div class="flow"><span class="node">Keyboard<br><code>Ali</code></span><span class="arrow">-&gt;</span><span class="node"><code>System.in</code><br>input stream</span><span class="arrow">-&gt;</span><span class="node"><code>Scanner</code><br>reads tokens/lines</span><span class="arrow">-&gt;</span><span class="node">Variable<br><code>name</code></span></div></div></section>
+    <section class="slide" id="slide-26"><p class="kicker">Live Code</p><h2>Create and use a Scanner</h2><pre><code>import java.util.Scanner;
+
+Scanner input = new Scanner(System.in);
+System.out.print("Name: ");
+String name = input.nextLine();</code></pre><p class="small">The import tells Java where to find the <code>Scanner</code> class.</p></section>
+    <section class="slide" id="slide-27"><p class="kicker">Scanner Methods</p><h2>Match the method to the type</h2><table class="simple-table"><tr><th>Method</th><th>Reads</th></tr><tr><td><code>nextLine()</code></td><td>A full line of text</td></tr><tr><td><code>next()</code></td><td>One word</td></tr><tr><td><code>nextInt()</code></td><td>An integer</td></tr><tr><td><code>nextDouble()</code></td><td>A decimal number</td></tr><tr><td><code>nextBoolean()</code></td><td><code>true</code> or <code>false</code></td></tr></table></section>
+    <section class="slide" id="slide-28"><p class="kicker">Live Code</p><h2>Console profile program</h2><pre><code>Scanner input = new Scanner(System.in);
+
+System.out.print("Student name: ");
+String name = input.nextLine();
+
+System.out.print("Age: ");
+int age = input.nextInt();
+
+System.out.println(name + " is " + age + " years old.");
+input.close();</code></pre></section>
+    <section class="slide" id="slide-29"><p class="kicker">Predict</p><h2>Trace values before running</h2><pre><code>int x = 3;
+int y = x + 2;
+x = 10;
+System.out.println(x);
+System.out.println(y);</code></pre><p>Does changing <code>x</code> later change <code>y</code>?</p></section>
+    <section class="slide slide-section"><p class="kicker">Section 05</p><h2>Input Pitfalls</h2><p>Trace what the keyboard leaves behind for the scanner.</p></section>
+    <section class="slide" id="slide-30"><p class="kicker">Common Input Mistake</p><h2><code>nextInt()</code> leaves the newline</h2><div class="diagram"><div class="flow"><span class="node">Typed input<br><code>19[Enter]</code></span><span class="arrow">-&gt;</span><span class="node"><code>nextInt()</code><br>takes <code>19</code></span><span class="arrow">-&gt;</span><span class="node">Buffer still has<br><code>[Enter]</code></span><span class="arrow">-&gt;</span><span class="node"><code>nextLine()</code><br>may read empty text</span></div></div><pre><code>int age = input.nextInt();
+input.nextLine(); // clear the leftover newline
+String city = input.nextLine();</code></pre></section>
+    <section class="slide" id="slide-31"><p class="kicker">Brief Official Demo</p><h2>GUI input with <code>JOptionPane</code></h2><pre><code>import javax.swing.JOptionPane;
+
+String name = JOptionPane.showInputDialog("Name:");
+JOptionPane.showMessageDialog(null, "Hello " + name);</code></pre><p class="small">This appears in the university material. Week 2 labs stay console-first with <code>Scanner</code>.</p></section>
+    <section class="slide" id="slide-32"><p class="kicker">GUI Conversion</p><h2>Dialog input is text</h2><pre><code>String text = JOptionPane.showInputDialog("Age:");
+int age = Integer.parseInt(text);
+double price = Double.parseDouble("19.75");</code></pre><p class="small">Parsing converts text digits into a numeric value. This is different from casting numeric types.</p></section>
+    <section class="slide" id="slide-33"><p class="kicker">Debug</p><h2>Beginner errors to catch</h2><ul><li>Using a variable before assigning a value.</li><li>Putting text into an <code>int</code>.</li><li>Using spaces in identifiers.</li><li>Forgetting <code>import java.util.Scanner;</code>.</li><li>Typing text when <code>nextInt()</code> expects a number.</li></ul></section>
+    <section class="slide" id="slide-34"><p class="kicker">Practice</p><h2>Build one line at a time</h2><ol><li>Declare variables.</li><li>Print labels.</li><li>Read input.</li><li>Print a summary.</li><li>Trace values after each input.</li></ol></section>
+    <section class="slide" id="slide-35"><p class="kicker">Recap</p><h2>Week 2 essentials</h2><ul><li>Identifiers name memory spaces.</li><li>Types protect values and operations.</li><li>Variables can change; constants should not.</li><li><code>Scanner</code> connects keyboard input to variables.</li><li>Tracing helps explain code before debugging it.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

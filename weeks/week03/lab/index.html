@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 3 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 3</a><span>/</span><span>Lab</span></nav>
+    <p class="eyebrow">Week 3 Lab</p>
+    <h1 class="page-title">Shopping Bill and Time Converter</h1>
+    <p class="lede">Use arithmetic, assignment operators, precedence, integer division, modulus, string concatenation, numeric conversion, casting, and formatted output. Do not use <code>if</code>, <code>else</code>, or loops.</p>
+    <div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>ShoppingBill.java</strong></div><div><span>Focus</span><strong>expressions and conversion</strong></div></div>
+    <div class="control-panel"><a class="button primary" href="starter/ShoppingBill.java">Open starter Java</a></div>
+    <section class="instruction-section"><h2>Starter structure</h2><pre><code>import java.util.Scanner;
+
+public class ShoppingBill {
+  public static void main(String[] args) {
+    final double VAT_RATE = 0.15;
+    Scanner input = new Scanner(System.in);
+
+    System.out.print("Item name: ");
+    String itemName = input.nextLine();
+
+    System.out.print("Unit price: ");
+    double unitPrice = input.nextDouble();
+
+    System.out.print("Quantity: ");
+    int quantity = input.nextInt();
+
+    double subtotal = unitPrice * quantity;
+    double vat = subtotal * VAT_RATE;
+    double total = subtotal + vat;
+
+    System.out.printf("Subtotal: %.2f%n", subtotal);
+    System.out.printf("VAT: %.2f%n", vat);
+    System.out.printf("Total for %s: %.2f%n", itemName, total);
+
+    input.close();
+  }
+}</code></pre></section>
+    <section class="instruction-section"><h2>Required extensions</h2><ol class="task-list"><li>Add a <code>deliveryFee</code> variable and include it with <code>total += deliveryFee;</code>.</li><li>Create <code>int wholeRiyals = (int) total;</code> and explain what casting removed.</li><li>Ask for <code>totalMinutes</code> and print hours plus remaining minutes using <code>/</code> and <code>%</code>.</li><li>Add one output line that would be wrong without parentheses, then fix it.</li><li>Create two boolean expressions, such as <code>enoughCash</code> and <code>largeOrder</code>, and print them. Do not use them in <code>if</code> statements.</li><li>Use <code>printf</code> for all money output.</li></ol></section>
+    <section class="instruction-section"><h2>Predict, run, compare, explain</h2><ol class="task-list"><li><strong>Predict:</strong> before running, calculate subtotal, VAT, total, whole riyals, hours, and remaining minutes by hand.</li><li><strong>Run:</strong> enter one complete test case in the VS Code terminal.</li><li><strong>Compare:</strong> place your predicted values beside the actual output.</li><li><strong>Explain:</strong> write one sentence for each mismatch, especially integer division, modulus, casting, and string concatenation.</li></ol></section>
+    <section class="instruction-section"><h2>Sample run</h2><pre><code>Item name: Notebook
+Unit price: 10.50
+Quantity: 3
+Delivery fee: 5.00
+Total minutes: 125
+
+Subtotal: 31.50
+VAT: 4.73
+Total for Notebook: 41.23
+Whole riyals: 41
+Time: 2 hours and 5 minutes</code></pre><p>Small decimal differences can happen because money uses decimal formatting. Use <code>printf</code> to show two digits after the decimal.</p></section>
+    <section class="instruction-section"><h2>Debug checks</h2><ul class="checklist"><li><code>5 / 2</code> gives <code>2</code>; use <code>5 / 2.0</code> or a cast when a decimal is needed.</li><li><code>+=</code> is one operator; <code>+ =</code> is invalid.</li><li><code>=</code> assigns; <code>==</code> compares.</li><li><code>&lt;=</code> and <code>&gt;=</code> cannot be reversed.</li><li>String concatenation needs parentheses when arithmetic should happen first.</li></ul></section>
+    <section class="instruction-section"><h2>Submit</h2><p>Submit <code>ShoppingBill.java</code>, one terminal run, and a trace of at least six expressions from your program.</p></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "title": "Programming 1",
+  "code": "CS0122",
+  "institution": "Imam Muhammad Ibn Saud Islamic University",
+  "program": "Computer Science",
+  "semester": "Fall 2026",
+  "instructor": "Dr. Fahad Alzahrani",
+  "sections": ["To be confirmed"],
+  "creditHours": "3 credit hours: 2 theory, 2 lab",
+  "contactHours": "48 contact hours: 24 lecture, 24 laboratory",
+  "prerequisites": "CS0115",
+  "environment": "Java JDK, Visual Studio Code, Java Extension Pack, terminal",
+  "colors": {
+    "ink": "#101820",
+    "accent": "#007c6c",
+    "gold": "#b78b20",
+    "paper": "#fbfaf7",
+    "line": "#d7dfdc"
+  },
+  "links": {
+    "javaDownloads": "https://www.oracle.com/java/technologies/downloads/",
+    "vscodeJava": "https://code.visualstudio.com/docs/languages/java",
+    "javaDocs": "https://docs.oracle.com/en/java/",
+    "openJdk": "https://openjdk.org/"
+  },
+  "learningOutcomes": [
+    "Explain what programming is and how Java source code is compiled to bytecode and executed by the JVM.",
+    "Use the JDK, VS Code, and terminal commands to create, compile, run, and debug beginner Java programs.",
+    "Write Java programs using class structure, main method, statements, comments, print, println, and escape sequences.",
+    "Use identifiers, keywords, primitive data types, String, literals, variables, constants, and Scanner input correctly.",
+    "Trace variable values, input flow, output statements, and expression results before running code.",
+    "Apply arithmetic, assignment, textual, relational, and logical operations as expressions, including precedence, integer division, modulus, conversion, casting, and formatted output."
+  ],
+  "assessments": [
+    {"item": "Midterm", "timing": "Week 7", "weight": "15%"},
+    {"item": "Quizzes", "timing": "All semester", "weight": "10%"},
+    {"item": "Lab evaluations", "timing": "All semester", "weight": "30%"},
+    {"item": "Group project", "timing": "Weeks 10-11", "weight": "20%"},
+    {"item": "Participation", "timing": "All semester", "weight": "5%"},
+    {"item": "Final lab exam", "timing": "Week 12", "weight": "20%"}
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Java, JVM/JRE/JDK, and First Program",
+      "module": "Official Chapters 1-2: Java introduction and development environment",
+      "learn": "Programming concepts, instruction types, Java characteristics, platform independence, source code, compiler, bytecode, JVM, JRE, JDK, Java SE context, VS Code/JDK setup, program structure, class, main, statements, comments, print/println, escape sequences, compile/run workflow, and basic error types.",
+      "buildsOn": "No prerequisites beyond CS0115 readiness",
+      "duration": "Theory + lab practice",
+      "status": "Ready",
+      "slides": "weeks/week01/slides/index.html",
+      "lab": "weeks/week01/lab/index.html",
+      "activity": "weeks/week01/activity/index.html",
+      "resources": "Course specification, CH1 Introduction to Java and JVM, CH2 Java Development Environment, CS230 old Java intro slides, Java Full Course intro transcript",
+      "milestone": "Create, compile, run, modify, and debug HelloCS0122.java in VS Code."
+    },
+    {
+      "week": 2,
+      "title": "Variables, Data Types, Constants, and Console I/O",
+      "module": "Official Chapters 3-4: basic syntax, variables, data types, and I/O",
+      "learn": "Identifiers, naming rules, keywords, memory spaces, primitive data types, String, literals, declaration, assignment, initialization, constants, naming conventions, type compatibility, standard output, whitespace in strings, Scanner input, Scanner methods, input mistakes, value tracing, and brief JOptionPane/parsing demonstration.",
+      "buildsOn": "Week 1 Java program structure and terminal workflow",
+      "duration": "Theory + lab practice",
+      "status": "Ready",
+      "slides": "weeks/week02/slides/index.html",
+      "lab": "weeks/week02/lab/index.html",
+      "activity": "weeks/week02/activity/index.html",
+      "resources": "Course specification, CH3 Basic Syntax Variables Data Types Operators, CH4 Input/Output and Basic Formatting, CS230 variables/input slides, Java Full Course variables and input transcript",
+      "milestone": "Submit a console-based StudentProfile.java program using Scanner."
+    },
+    {
+      "week": 3,
+      "title": "Expressions, Operators, and Casting",
+      "module": "Official Chapter 2 Operations in Java, represented through CH3/CH4 materials",
+      "learn": "Arithmetic expressions, binary and unary arithmetic, assignment operators, increment/decrement, precedence, associativity, integer division, modulus, textual operations/string concatenation, formatted output, implicit numeric conversion, explicit casting, character numeric codes, expression tracing, relational/logical operations as boolean expressions, and common operator/type errors. Conditional control flow is deferred.",
+      "buildsOn": "Week 2 variables, data types, and console input/output",
+      "duration": "Theory + lab practice",
+      "status": "Ready",
+      "slides": "weeks/week03/slides/index.html",
+      "lab": "weeks/week03/lab/index.html",
+      "activity": "weeks/week03/activity/index.html",
+      "resources": "Course specification, CH3 operations/expression slides, CH4 console I/O and formatting, CS230 operators/debugging slides, Java Full Course expressions transcript",
+      "milestone": "Build ShoppingBill.java using expressions, casting, printf, and boolean expressions without conditionals."
+    },
+    {"week": 4, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Weeks 1-3", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 5, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 6, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 7, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 8, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 9, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 10, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 11, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 12, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 13, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"},
+    {"week": 14, "title": "Upcoming / Planned", "module": "Official later sequence not generated yet", "learn": "Upcoming CS0122 content remains planned. Instructional materials will be developed later from the official specification and university sources.", "buildsOn": "Earlier CS0122 work", "duration": "Planned", "status": "Planned", "resources": "Not generated yet", "milestone": "Planned"}
+  ]
+}

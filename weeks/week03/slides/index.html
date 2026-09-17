@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 3 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 3 - Hook</p><h1>Can Java calculate the bill correctly?</h1><p>Input values are not useful until a program combines them into results. This week is about expressions.</p></section>
+    <section class="slide" id="slide-2"><p class="kicker">Learning Goals</p><h2>By the end of Week 3</h2><ul><li>Build arithmetic, assignment, textual, relational, and logical expressions.</li><li>Predict precedence, integer division, and modulus results.</li><li>Use increment, decrement, conversion, casting, and formatted output.</li><li>Debug common operator and type mistakes.</li></ul></section>
+    <section class="slide" id="slide-3"><p class="kicker">Boundary</p><h2>Expressions now, control flow later</h2><p>CH3 includes relational and logical operations before the selection chapter. We can evaluate them as expressions that produce <code>true</code> or <code>false</code>.</p><div class="callout">No <code>if</code>, <code>else</code>, loops, or conditional control flow this week.</div></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Expressions</h2><p>Combine values and operators to produce a result.</p></section>
+    <section class="slide" id="slide-4"><p class="kicker">Concept</p><h2>Expression = operands + operators</h2><div class="diagram expression-map"><span class="node">subtotal</span><span class="arrow">+</span><span class="node">vat</span><span class="arrow">=</span><span class="node">total</span></div><p class="small">An expression represents a value after Java evaluates it.</p></section>
+    <section class="slide" id="slide-5"><p class="kicker">Operations</p><h2>Official operation groups</h2><div class="card-grid"><div class="mini-card"><strong>Assignment</strong><code>= += -= *= /= %=</code></div><div class="mini-card"><strong>Arithmetic</strong><code>+ - * / % ++ --</code></div><div class="mini-card"><strong>Textual</strong><code>+</code> joins strings and values.</div><div class="mini-card"><strong>Relational / Logical</strong>Produce boolean values for later decisions.</div></div></section>
+    <section class="slide" id="slide-6"><p class="kicker">Live Code</p><h2>Shopping bill calculator</h2><pre><code>double unitPrice = 19.75;
+int quantity = 3;
+double subtotal = unitPrice * quantity;
+double vat = subtotal * 0.15;
+double total = subtotal + vat;
+
+System.out.println("Total: " + total);</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 02</p><h2>Arithmetic Operators</h2><p>Use Java operators carefully and predict the value they produce.</p></section>
+    <section class="slide" id="slide-7"><p class="kicker">Arithmetic</p><h2>Binary arithmetic operators</h2><table class="simple-table"><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr><tr><td><code>+</code></td><td>addition</td><td><code>4 + 2</code></td></tr><tr><td><code>-</code></td><td>subtraction</td><td><code>4 - 2</code></td></tr><tr><td><code>*</code></td><td>multiplication</td><td><code>4 * 2</code></td></tr><tr><td><code>/</code></td><td>division</td><td><code>4 / 2</code></td></tr><tr><td><code>%</code></td><td>remainder</td><td><code>5 % 2</code></td></tr></table></section>
+    <section class="slide" id="slide-8"><p class="kicker">Unary Arithmetic</p><h2>Increment and decrement</h2><pre><code>int count = 10;
+count++;  // count becomes 11
+count--;  // count becomes 10</code></pre><p class="small">For Programming 1, use one update per line. Prefix forms such as <code>++count</code> are trace-only enrichment, not required lab knowledge.</p></section>
+    <section class="slide" id="slide-9"><p class="kicker">Assignment</p><h2>Assignment stores a value</h2><pre><code>int points = 10;
+points = points + 5;
+points += 5;
+points *= 2;</code></pre><p><code>+=</code> is one operator. <code>+ =</code> is not valid Java.</p></section>
+    <section class="slide" id="slide-10"><p class="kicker">Visual Model</p><h2>Assignment changes the box</h2><div class="diagram memory-row"><span><strong>points</strong><code>10</code><em>before</em></span><span><strong>points += 5</strong><code>15</code><em>after</em></span><span><strong>points *= 2</strong><code>30</code><em>after</em></span><span><strong>print</strong><code>30</code><em>output</em></span></div></section>
+    <section class="slide slide-section"><p class="kicker">Section 03</p><h2>Evaluation Order</h2><p>Precedence and parentheses decide what Java evaluates first.</p></section>
+    <section class="slide" id="slide-11"><p class="kicker">Precedence</p><h2>Week 3 precedence ladder</h2><table class="simple-table"><tr><th>First</th><td>Parentheses</td><td><code>( )</code></td></tr><tr><th>Then</th><td>Increment/decrement on a single variable</td><td><code>++ --</code></td></tr><tr><th>Then</th><td>Multiplication, division, remainder</td><td><code>* / %</code></td></tr><tr><th>Then</th><td>Addition, subtraction, string joining</td><td><code>+ -</code></td></tr><tr><th>Later in trace</th><td>Relational/logical produce booleans</td><td><code>&gt; == && ||</code></td></tr><tr><th>Last</th><td>Assignment stores the final value</td><td><code>= +=</code></td></tr></table></section>
+    <section class="slide" id="slide-12"><p class="kicker">Visual Model</p><h2>Expression evaluation tree</h2><div class="diagram"><div class="flow"><span class="node"><code>2 + 7 * 4</code></span><span class="arrow">-&gt;</span><span class="node"><code>7 * 4</code><br>first</span><span class="arrow">-&gt;</span><span class="node"><code>2 + 28</code></span><span class="arrow">-&gt;</span><span class="node"><code>30</code></span></div></div><p class="small">Multiplication happens before addition unless parentheses change the order.</p></section>
+    <section class="slide" id="slide-13"><p class="kicker">Associativity</p><h2>Same-precedence operators go in order</h2><pre><code>int a = 20 / 5 * 2;
+int b = 20 / (5 * 2);</code></pre><p class="small">For <code>*</code>, <code>/</code>, and <code>%</code>, Java evaluates left to right unless parentheses say otherwise.</p></section>
+    <section class="slide slide-section"><p class="kicker">Section 04</p><h2>Division and Remainders</h2><p>Integer division and modulus are deliberate tools, not accidents.</p></section>
+    <section class="slide" id="slide-14"><p class="kicker">Integer Division</p><h2>Whole numbers give whole-number division</h2><pre><code>int students = 10;
+int groups = 3;
+System.out.println(students / groups);</code></pre><p class="small">The result is <code>3</code>, not <code>3.333...</code>.</p></section>
+    <section class="slide" id="slide-15"><p class="kicker">Modulus</p><h2>Modulus gives the remainder</h2><pre><code>int students = 10;
+int groups = 3;
+System.out.println(students % groups);</code></pre><p class="small">The result is <code>1</code>. One student remains after making groups of three.</p></section>
+    <section class="slide" id="slide-16"><p class="kicker">Try It</p><h2>Time converter</h2><pre><code>int totalMinutes = 125;
+int hours = totalMinutes / 60;
+int minutes = totalMinutes % 60;
+System.out.println(hours + " hours");
+System.out.println(minutes + " minutes");</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 05</p><h2>Type Conversion</h2><p>Know when Java widens automatically and when a cast is required.</p></section>
+    <section class="slide" id="slide-17"><p class="kicker">Numeric Promotion</p><h2>Automatic widening</h2><div class="diagram"><div class="flow"><span class="node"><code>int</code></span><span class="arrow">-&gt;</span><span class="node"><code>long</code></span><span class="arrow">-&gt;</span><span class="node"><code>float</code></span><span class="arrow">-&gt;</span><span class="node"><code>double</code></span></div></div><pre><code>int quantity = 3;
+double price = 7.50;
+double subtotal = quantity * price;</code></pre><p class="small">Java can automatically widen a smaller numeric value into a larger numeric type.</p></section>
+    <section class="slide" id="slide-18"><p class="kicker">Casting</p><h2>Explicit narrowing</h2><div class="diagram"><div class="flow"><span class="node"><code>double</code><br><code>68.1375</code></span><span class="arrow">-&gt;</span><span class="node">cast<br><code>(int)</code></span><span class="arrow">-&gt;</span><span class="node"><code>int</code><br><code>68</code></span></div></div><pre><code>double total = 68.1375;
+int wholeRiyals = (int) total;</code></pre><p class="small">Narrowing can lose information, so Java asks you to write the cast.</p></section>
+    <section class="slide" id="slide-19"><p class="kicker">Casting</p><h2>Keep decimal division when needed</h2><pre><code>int students = 10;
+int groups = 3;
+double average = (double) students / groups;
+System.out.println(average);</code></pre><p>Cast before division to avoid losing the decimal part.</p></section>
+    <section class="slide" id="slide-20"><p class="kicker">Conversion Boundary</p><h2>Casting is not parsing</h2><table class="simple-table"><tr><th>Conversion</th><th>Example</th><th>Use when</th></tr><tr><td>Numeric cast</td><td><code>(int) 68.9</code></td><td>You already have a number.</td></tr><tr><td>String parsing</td><td><code>Integer.parseInt("68")</code></td><td>You have text that contains digits.</td></tr></table></section>
+    <section class="slide slide-section"><p class="kicker">Section 06</p><h2>Strings and Output</h2><p>Text changes how <code>+</code> behaves in an expression.</p></section>
+    <section class="slide" id="slide-21"><p class="kicker">Textual Operations</p><h2><code>+</code> joins strings</h2><pre><code>String item = "Notebook";
+int quantity = 3;
+System.out.println(item + ": " + quantity);
+System.out.println("Total items: " + quantity + 2);
+System.out.println("Total items: " + (quantity + 2));</code></pre><p class="small">Parentheses make text-plus-math output honest.</p></section>
+    <section class="slide" id="slide-22"><p class="kicker">Formatted Output</p><h2><code>printf</code> controls numeric display</h2><pre><code>double total = 68.1375;
+System.out.printf("Total: %.2f%n", total);</code></pre><p class="small"><code>%.2f</code> prints two digits after the decimal. <code>%n</code> moves to a new line.</p></section>
+    <section class="slide" id="slide-23"><p class="kicker">Relational Operations</p><h2>Comparisons produce booleans</h2><pre><code>int age = 19;
+boolean oldEnough = age >= 18;
+boolean exact = age == 19;</code></pre><p class="small">We only evaluate these expressions now. We use them for decisions in the next chapter.</p></section>
+    <section class="slide" id="slide-24"><p class="kicker">Logical Operations</p><h2>Logical operators combine booleans</h2><pre><code>boolean hasId = true;
+boolean registered = false;
+boolean ready = hasId && registered;
+boolean needsHelp = !registered;</code></pre><p class="small"><code>&amp;&amp;</code> means AND, <code>||</code> means OR, and <code>!</code> means NOT.</p></section>
+    <section class="slide slide-section"><p class="kicker">Section 07</p><h2>Predict, Trace, Debug</h2><p>Read expressions before running them.</p></section>
+    <section class="slide" id="slide-25"><p class="kicker">Predict</p><h2>Trace every expression</h2><pre><code>int x = 10;
+int y = 4;
+double price = 7.5;
+System.out.println(x / y);
+System.out.println(x % y);
+System.out.println(price * y);
+System.out.println("Answer: " + (x + y));</code></pre></section>
+    <section class="slide" id="slide-26"><p class="kicker">Debug</p><h2>Common operator mistakes</h2><ul><li>Expecting <code>5 / 2</code> to produce <code>2.5</code>.</li><li>Writing <code>+ =</code> instead of <code>+=</code>.</li><li>Using <code>=</code> when a boolean comparison needs <code>==</code>.</li><li>Reversing operators: <code>=&lt;</code> instead of <code>&lt;=</code>.</li><li>Forgetting parentheses in string concatenation.</li></ul></section>
+    <section class="slide" id="slide-27"><p class="kicker">Debug This</p><h2>Find and classify the issues</h2><pre><code>int total = 5.5;
+int minutes = 125;
+double hours = minutes / 60;
+int count = 10;
+count + = 2;
+System.out.println("Total: " + 3 + 4);</code></pre></section>
+    <section class="slide" id="slide-28"><p class="kicker">Lab</p><h2>ShoppingBill.java</h2><p>The lab uses console input, arithmetic, assignment operators, casting, modulus, string concatenation, and formatted output.</p><div class="callout">Still no <code>if</code>, <code>else</code>, loops, or branching.</div></section>
+    <section class="slide" id="slide-29"><p class="kicker">Recap</p><h2>Week 3 essentials</h2><ul><li>Expressions produce values.</li><li>Precedence and parentheses control evaluation.</li><li>Integer division and modulus are deliberate tools.</li><li>Casting changes type and can lose information.</li><li>Boolean expressions are prepared here for future selection statements.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

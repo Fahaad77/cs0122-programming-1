@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 2 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 2</a><span>/</span><span>Lab</span></nav>
+    <p class="eyebrow">Week 2 Lab</p>
+    <h1 class="page-title">Student Profile Program</h1>
+    <p class="lede">Build a console program using identifiers, primitive types, <code>String</code>, constants, output, <code>Scanner</code>, and value tracing.</p>
+    <div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>StudentProfile.java</strong></div><div><span>Main model</span><strong>Console I/O with Scanner</strong></div></div>
+    <div class="control-panel"><a class="button primary" href="starter/StudentProfile.java">Open starter Java</a></div>
+    <section class="instruction-section"><h2>Starter structure</h2><pre><code>import java.util.Scanner;
+
+public class StudentProfile {
+  public static void main(String[] args) {
+    final String COURSE_CODE = "CS0122";
+    Scanner input = new Scanner(System.in);
+
+    System.out.print("Student name: ");
+    String name = input.nextLine();
+
+    System.out.print("Age: ");
+    int age = input.nextInt();
+    input.nextLine();
+
+    System.out.print("Section: ");
+    String section = input.nextLine();
+
+    System.out.print("Expected GPA: ");
+    double expectedGpa = input.nextDouble();
+
+    boolean setupComplete = true;
+
+    System.out.println("Course: " + COURSE_CODE);
+    System.out.println("Student: " + name);
+    System.out.println("Age: " + age);
+    System.out.println("Section: " + section);
+    System.out.println("Expected GPA: " + expectedGpa);
+    System.out.println("Setup complete: " + setupComplete);
+
+    input.close();
+  }
+}</code></pre></section>
+    <section class="instruction-section"><h2>Lab tasks</h2><ol class="task-list"><li>Create <code>week02-profile</code> and open it in VS Code.</li><li>Create <code>StudentProfile.java</code> and type or adapt the starter program.</li><li>Before running, list each variable, its type, and where its value comes from.</li><li>Compile and run with two different input sets.</li><li>Add one more <code>String</code> input, such as favorite programming topic.</li><li>Add one invalid identifier on purpose, compile, read the error, then fix it.</li><li>Try typing text where <code>nextInt()</code> expects a number and record the error name.</li></ol></section>
+    <section class="instruction-section"><h2>JOptionPane mini demo</h2><p>If the instructor asks, create a separate <code>DialogDemo.java</code> that reads one name with <code>JOptionPane.showInputDialog</code>. Do not replace the main console lab.</p></section>
+    <section class="instruction-section"><h2>Submit</h2><p>Submit <code>StudentProfile.java</code>, one terminal run, and a small trace table showing final values for at least five variables.</p></section>
+  </main>
+</body>
+</html>

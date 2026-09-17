@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 2 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 2</a><span>/</span><span>Activity</span></nav>
+    <p class="eyebrow">Week 2 Activity</p>
+    <h1 class="page-title">Identifiers, Memory Boxes, and Scanner Tracing</h1>
+    <p class="lede">This is the thinking workshop before the console-programming lab.</p>
+    <section class="instruction-section"><h2>Part A: Identifier check</h2><table class="trace-table"><thead><tr><th>Name</th><th>Valid?</th><th>Rule</th><th>Better name if needed</th></tr></thead><tbody><tr><td><code>studentName</code></td><td></td><td></td><td></td></tr><tr><td><code>2students</code></td><td></td><td></td><td></td></tr><tr><td><code>student mark</code></td><td></td><td></td><td></td></tr><tr><td><code>class</code></td><td></td><td></td><td></td></tr><tr><td><code>MAX_SCORE</code></td><td></td><td></td><td></td></tr></tbody></table></section>
+    <section class="instruction-section"><h2>Part B: Choose the type</h2><p>Choose the most appropriate Java type, then justify your answer to a partner before the class reveal.</p><table class="trace-table"><thead><tr><th>Value to store</th><th>Your type</th><th>Why this type?</th></tr></thead><tbody><tr><td>Student age</td><td></td><td></td></tr><tr><td>Course code such as CS0122</td><td></td><td></td></tr><tr><td>Expected GPA</td><td></td><td></td></tr><tr><td>Section name such as L3</td><td></td><td></td></tr><tr><td>Setup complete?</td><td></td><td></td></tr><tr><td>Very large national population count</td><td></td><td></td></tr></tbody></table></section>
+    <section class="instruction-section"><h2>Part C: Trace variable values</h2><pre><code>int seats = 20;
+int students = 18;
+students = students + 1;
+String room = "Lab A";
+System.out.println(room);
+System.out.println(seats - students);</code></pre><table class="trace-table"><thead><tr><th>Line</th><th><code>seats</code></th><th><code>students</code></th><th><code>room</code></th><th>Output</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td><td></td></tr></tbody></table></section>
+    <section class="instruction-section"><h2>Part D: Scanner flow</h2><pre><code>System.out.print("Age: ");
+int age = input.nextInt();
+input.nextLine();
+System.out.print("City: ");
+String city = input.nextLine();</code></pre><p>Explain why the extra <code>nextLine()</code> appears between numeric input and full-line text input.</p></section>
+    <section class="instruction-section"><h2>Part E: Debug declarations</h2><pre><code>int number = "five";
+String student name = "Ali";
+final double TAX_RATE = 0.15;
+TAX_RATE = 0.20;
+System.out.println(total);</code></pre><p>Classify each issue as an identifier rule, type mismatch, assigning a second value to a final variable, or variable-used-before-declaration issue.</p><div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div></section>
+  </main>
+</body>
+</html>

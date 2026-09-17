@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 3 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 3</a><span>/</span><span>Activity</span></nav>
+    <p class="eyebrow">Week 3 Activity</p>
+    <h1 class="page-title">Expression Tracing and Operator Debugging</h1>
+    <p class="lede">Predict, run, explain, modify, and debug expressions before building the calculator lab.</p>
+    <section class="instruction-section"><h2>Part A: Classify operations</h2><table class="trace-table"><thead><tr><th>Expression</th><th>Operation type</th><th>Result type</th></tr></thead><tbody><tr><td><code>total = subtotal + vat</code></td><td></td><td></td></tr><tr><td><code>count++</code></td><td></td><td></td></tr><tr><td><code>"Total: " + total</code></td><td></td><td></td></tr><tr><td><code>age &gt;= 18</code></td><td></td><td></td></tr><tr><td><code>ready &amp;&amp; paid</code></td><td></td><td></td></tr></tbody></table></section>
+    <section class="instruction-section"><h2>Part B: Predict expression values</h2><pre><code>int x = 10;
+int y = 4;
+double price = 7.5;
+
+System.out.println(x / y);
+System.out.println(x % y);
+System.out.println(price * y);
+System.out.println("Answer: " + x + y);
+System.out.println("Answer: " + (x + y));</code></pre><table class="trace-table"><thead><tr><th>Expression</th><th>Prediction</th><th>Actual</th><th>Explanation</th></tr></thead><tbody><tr><td><code>x / y</code></td><td></td><td></td><td></td></tr><tr><td><code>x % y</code></td><td></td><td></td><td></td></tr><tr><td><code>price * y</code></td><td></td><td></td><td></td></tr><tr><td><code>"Answer: " + x + y</code></td><td></td><td></td><td></td></tr><tr><td><code>"Answer: " + (x + y)</code></td><td></td><td></td><td></td></tr></tbody></table></section>
+    <section class="instruction-section"><h2>Part C: Conversion tracing</h2><pre><code>int minutes = 125;
+int hours = minutes / 60;
+int remaining = minutes % 60;
+double preciseHours = (double) minutes / 60;
+int roundedDown = (int) preciseHours;</code></pre><p>Trace all five variables. Which line loses decimal information?</p></section>
+    <section class="instruction-section"><h2>Part D: Boolean expressions only</h2><pre><code>int age = 19;
+boolean hasId = true;
+boolean oldEnough = age &gt;= 18;
+boolean canRegister = oldEnough &amp;&amp; hasId;</code></pre><p>Predict the value of each boolean. Do not write <code>if</code> statements yet.</p></section>
+    <section class="instruction-section"><h2>Part E: Debug operator mistakes</h2><pre><code>int total = 5.5;
+double hours = 125 / 60;
+int count = 10;
+count + = 2;
+boolean match = count = 12;
+System.out.println("Total: " + 3 + 4);</code></pre><p>Label each issue as type mismatch, integer division, assignment typo, comparison typo, or text concatenation issue.</p><div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div></section>
+  </main>
+</body>
+</html>
