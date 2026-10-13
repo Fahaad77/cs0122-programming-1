@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 760" role="img" aria-labelledby="title desc">
+  <title id="title">Light mode Java programming workspace</title>
+  <desc id="desc">A bright code editor scene showing Java code, terminal output, and course workflow elements.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.62" stop-color="#eef8f4"/>
+      <stop offset="1" stop-color="#fdf6e7"/>
+    </linearGradient>
+    <linearGradient id="editor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5fbf8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#0b1624" flood-opacity="0.16"/>
+    </filter>
+    <filter id="floatShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#007c6c" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="980" height="760" rx="38" fill="url(#paper)"/>
+  <circle cx="870" cy="92" r="142" fill="#dff3ec" opacity="0.95"/>
+  <circle cx="122" cy="638" r="168" fill="#fff1cf" opacity="0.75"/>
+  <path d="M54 166 C220 76 314 192 460 122 C660 26 770 98 920 42" fill="none" stroke="#007c6c" stroke-width="2" opacity="0.22"/>
+  <path d="M26 516 C186 440 302 536 478 452 C642 374 780 424 936 342" fill="none" stroke="#b78b20" stroke-width="2" opacity="0.22"/>
+
+  <g transform="translate(104 112) rotate(-3 388 250)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="760" height="506" rx="22" fill="url(#editor)" stroke="#cddbd8"/>
+    <rect x="0" y="0" width="760" height="54" rx="22" fill="#edf6f2"/>
+    <path d="M0 34 H760" stroke="#d2dfdc"/>
+    <circle cx="30" cy="27" r="7" fill="#ef4444"/>
+    <circle cx="54" cy="27" r="7" fill="#f59e0b"/>
+    <circle cx="78" cy="27" r="7" fill="#10b981"/>
+    <text x="114" y="33" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f4c45">Programming1.java</text>
+    <text x="626" y="33" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#4d5d5a">VS Code</text>
+
+    <rect x="22" y="76" width="472" height="338" rx="14" fill="#ffffff" stroke="#dbe7e4"/>
+    <rect x="514" y="76" width="220" height="148" rx="14" fill="#101820"/>
+    <rect x="514" y="244" width="220" height="170" rx="14" fill="#ffffff" stroke="#dbe7e4"/>
+
+    <g font-family="SFMono-Regular, Consolas, monospace" font-size="18">
+      <text x="44" y="116" fill="#94a3b8">1</text>
+      <text x="80" y="116" fill="#7c3aed">import</text>
+      <text x="152" y="116" fill="#0f4c45"> java.util.Scanner;</text>
+
+      <text x="44" y="156" fill="#94a3b8">3</text>
+      <text x="80" y="156" fill="#7c3aed">public class</text>
+      <text x="214" y="156" fill="#007c6c"> Main</text>
+      <text x="270" y="156" fill="#101820"> {</text>
+
+      <text x="44" y="196" fill="#94a3b8">4</text>
+      <text x="100" y="196" fill="#7c3aed">public static void</text>
+      <text x="292" y="196" fill="#007c6c"> main</text>
+      <text x="350" y="196" fill="#101820">(String[] args) {</text>
+
+      <text x="44" y="236" fill="#94a3b8">5</text>
+      <text x="122" y="236" fill="#101820">Scanner input = </text>
+      <text x="302" y="236" fill="#d97706">new</text>
+      <text x="350" y="236" fill="#101820"> Scanner(System.in);</text>
+
+      <text x="44" y="276" fill="#94a3b8">7</text>
+      <text x="122" y="276" fill="#7c3aed">for</text>
+      <text x="164" y="276" fill="#101820"> (int i = 1; i &lt;= 5; i++) {</text>
+
+      <rect x="112" y="296" width="346" height="34" rx="8" fill="#e9f8f3"/>
+      <text x="44" y="320" fill="#94a3b8">8</text>
+      <text x="144" y="320" fill="#0f4c45">System.out.println</text>
+      <text x="342" y="320" fill="#101820">(i);</text>
+
+      <text x="44" y="360" fill="#94a3b8">9</text>
+      <text x="122" y="360" fill="#101820">}</text>
+      <text x="44" y="400" fill="#94a3b8">11</text>
+      <text x="100" y="400" fill="#101820">}</text>
+    </g>
+
+    <g font-family="SFMono-Regular, Consolas, monospace">
+      <text x="536" y="110" fill="#9ca3af" font-size="14">$ javac Main.java</text>
+      <text x="536" y="142" fill="#9ca3af" font-size="14">$ java Main</text>
+      <text x="536" y="176" fill="#34d399" font-size="18">1  2  3  4  5</text>
+      <rect x="534" y="194" width="76" height="4" rx="2" fill="#007c6c"/>
+    </g>
+
+    <g font-family="Inter, Arial, sans-serif">
+      <text x="536" y="284" font-size="14" font-weight="900" fill="#007c6c">TRACE</text>
+      <text x="536" y="314" font-size="17" font-weight="800" fill="#101820">i = 1</text>
+      <text x="536" y="346" font-size="17" font-weight="800" fill="#101820">condition true</text>
+      <text x="536" y="378" font-size="17" font-weight="800" fill="#101820">print, update, repeat</text>
+    </g>
+  </g>
+
+  <g transform="translate(54 478)" filter="url(#floatShadow)">
+    <rect x="0" y="0" width="226" height="122" rx="18" fill="#ffffff" stroke="#d6e3df"/>
+    <text x="22" y="34" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900" fill="#007c6c">JAVA TOOLCHAIN</text>
+    <g font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">
+      <text x="22" y="72" fill="#101820">Source</text>
+      <text x="88" y="72" fill="#b78b20">-&gt;</text>
+      <text x="118" y="72" fill="#101820">Bytecode</text>
+      <text x="22" y="100" fill="#101820">JVM</text>
+      <text x="66" y="100" fill="#b78b20">-&gt;</text>
+      <text x="96" y="100" fill="#101820">Output</text>
+    </g>
+  </g>
+
+  <g transform="translate(662 510)" filter="url(#floatShadow)">
+    <rect x="0" y="0" width="244" height="116" rx="18" fill="#ffffff" stroke="#d6e3df"/>
+    <text x="22" y="34" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900" fill="#007c6c">COURSE RHYTHM</text>
+    <g font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#101820">
+      <text x="22" y="70">Predict</text>
+      <text x="96" y="70" fill="#b78b20">Run</text>
+      <text x="142" y="70">Trace</text>
+      <text x="22" y="96">Modify</text>
+      <text x="96" y="96" fill="#b78b20">Debug</text>
+    </g>
+  </g>
+</svg>
