@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 11 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 11</p><h1>Integrated Array Project</h1><p>Turn separate skills into one complete beginner Java program.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today&apos;s teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide slide-question"><p class="kicker">Hook</p><h2>One program, many skills</h2><p>A grade manager needs input, arrays, loops, conditions, calculations, and a menu. Nothing is new by itself; the skill is connecting them.</p></section>
+    <section class="slide"><p class="kicker">Concept</p><h2>Project pieces</h2><div class="card-grid"><div class="mini-card"><strong>Data</strong><p>Array stores scores.</p></div><div class="mini-card"><strong>Menu</strong><p>switch chooses an operation.</p></div><div class="mini-card"><strong>Loop</strong><p>do-while repeats until Exit.</p></div><div class="mini-card"><strong>Operations</strong><p>Display, average, count, search.</p></div></div></section>
+    <section class="slide slide-visual"><p class="kicker">Visual Model</p><h2>Program architecture</h2><div class="flow"><span class="node">Input scores</span><span class="arrow">-&gt;</span><span class="node">Store array</span><span class="arrow">-&gt;</span><span class="node">Menu loop</span><span class="arrow">-&gt;</span><span class="node">Array operation</span><span class="arrow">-&gt;</span><span class="node">Output</span></div></section>
+    <section class="slide slide-visual"><p class="kicker">Data Model</p><h2>One array of scores</h2><table class="simple-table"><tr><th>index</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>score</th><td>70</td><td>55</td><td>90</td><td>64</td><td>40</td></tr></table><p>The index connects each value to a student position.</p></section>
+    <section class="slide slide-code"><p class="kicker">Syntax</p><h2>Repeating menu</h2><pre><code>int choice;
+do {
+    System.out.println("1. Display scores");
+    System.out.println("0. Exit");
+    choice = input.nextInt();
+} while (choice != 0);</code></pre></section>
+    <section class="slide slide-code"><p class="kicker">Full Program</p><h2>Grade manager</h2><pre><code>import java.util.Scanner;
+
+public class GradeManagementProject {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] scores = new int[5];
+
+        for (int i = 0; i &lt; scores.length; i++) {
+            System.out.print("Score for student " + (i + 1) + ": ");
+            scores[i] = input.nextInt();
+        }
+
+        int choice;
+        do {
+            System.out.println("1. Display scores");
+            System.out.println("2. Show average");
+            System.out.println("3. Count pass/fail");
+            System.out.println("0. Exit");
+            System.out.print("Choice: ");
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    for (int i = 0; i &lt; scores.length; i++) {
+                        System.out.println("Student " + (i + 1) + ": " + scores[i]);
+                    }
+                    break;
+                case 2:
+                    int total = 0;
+                    for (int score : scores) {
+                        total += score;
+                    }
+                    System.out.printf("Average: %.2f%n", (double) total / scores.length);
+                    break;
+                case 3:
+                    int pass = 0;
+                    for (int score : scores) {
+                        if (score &gt;= 60) {
+                            pass++;
+                        }
+                    }
+                    System.out.println("Pass: " + pass);
+                    System.out.println("Fail: " + (scores.length - pass));
+                    break;
+                case 0:
+                    System.out.println("Project closed.");
+                    break;
+                default:
+                    System.out.println("Invalid menu choice.");
+            }
+        } while (choice != 0);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide slide-question"><p class="kicker">Predict</p><h2>What prints?</h2><p>Scores: 80, 50, 75, 60, 59. The user chooses option 3. Predict the pass and fail counts before running.</p><table class="trace-table"><tr><th>score</th><th>score &gt;= 60?</th><th>pass count</th></tr><tr><td>80</td><td></td><td></td></tr><tr><td>50</td><td></td><td></td></tr><tr><td>75</td><td></td><td></td></tr></table></section>
+    <section class="slide slide-trace"><p class="kicker">Trace</p><h2>Average operation</h2><table class="trace-table"><tr><th>iteration</th><th>score</th><th>total before</th><th>total after</th></tr><tr><td>1</td><td>70</td><td>0</td><td>70</td></tr><tr><td>2</td><td>55</td><td>70</td><td>125</td></tr><tr><td>3</td><td>90</td><td>125</td><td>215</td></tr></table></section>
+    <section class="slide"><p class="kicker">Modify</p><h2>Add one feature at a time</h2><ul><li>Add menu option 4: highest score.</li><li>Add menu option 5: search for exact score.</li><li>Compile after each option.</li><li>Test with data where the answer is obvious.</li></ul></section>
+    <section class="slide slide-debug"><p class="kicker">Debug</p><h2>Project risks</h2><pre><code>// Risk 1: total is not reset before calculating average again
+// Risk 2: missing break causes the next case to run
+// Risk 3: array index uses &lt;= instead of &lt;</code></pre></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Project checkpoint</h2><ul><li>Name the arrays in your project.</li><li>Name three operations your menu performs.</li><li>Write one test case with expected output.</li><li>Explain one loop in plain English.</li></ul></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Integrated project checklist</h2><ul><li>Start with the data structure.</li><li>Make the menu small and testable.</li><li>Trace every operation.</li><li>Debug one feature at a time.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

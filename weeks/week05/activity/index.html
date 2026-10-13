@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 5 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 5</a><span>/</span><span>Activity</span></nav>
+<p class="eyebrow">Week 5 Activity</p><h1 class="page-title">Loop Prediction and Tracing Workshop</h1><p class="lede">Students predict loop output, trace counter values, and repair infinite-loop mistakes before writing the lab.</p>
+<section class="instruction-section"><h2>Part A: Trace counters</h2><table class="trace-table"><thead><tr><th>Code</th><th>Iteration count</th><th>Values printed</th></tr></thead><tbody><tr><td>int i=1; i<=4; i++</td><td></td><td></td></tr><tr><td>int i=8; i>=2; i-=2</td><td></td><td></td></tr><tr><td>int i=0; i<10; i+=3</td><td></td><td></td></tr></tbody></table></section>
+<section class="instruction-section"><h2>Part B: Convert while to for</h2><pre><code>int i = 1;
+while (i &lt;= 10) {
+    System.out.println(i);
+    i++;
+}</code></pre><p>Rewrite this as a <code>for</code> loop.</p></section>
+<section class="instruction-section"><h2>Part C: Find the infinite loop</h2><pre><code>int count = 5;
+while (count &gt; 0) {
+    System.out.println(count);
+}</code></pre><p>Explain the missing update and fix it.</p></section>
+<section class="instruction-section"><h2>Part D: Sentinel design</h2><p>Design a loop that asks for ages until the user enters -1, then prints how many valid ages were entered.</p></section>
+<div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div>
+</main></body></html>

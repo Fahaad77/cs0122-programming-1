@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 4 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 4</a><span>/</span><span>Activity</span></nav>
+<p class="eyebrow">Week 4 Activity</p><h1 class="page-title">Branch Tracing Workshop</h1><p class="lede">Students predict paths, explain conditions, and repair selection bugs before writing the lab.</p>
+<section class="instruction-section"><h2>Part A: Trace branch paths</h2><table class="trace-table"><thead><tr><th>Input</th><th>Condition 1</th><th>Condition 2</th><th>Executed branch</th></tr></thead><tbody><tr><td>number = -4</td><td></td><td></td><td></td></tr><tr><td>number = 0</td><td></td><td></td><td></td></tr><tr><td>number = 9</td><td></td><td></td><td></td></tr></tbody></table></section>
+<section class="instruction-section"><h2>Part B: Repair conditions</h2><pre><code>if (gpa &gt;= 0 || gpa &lt;= 5) {
+    System.out.println("valid");
+}
+
+if (choice = 2) {
+    System.out.println("Pasta");
+}</code></pre><p>Find the logical operator error and the assignment/comparison error.</p></section>
+<section class="instruction-section"><h2>Part C: switch or if?</h2><table class="trace-table"><thead><tr><th>Task</th><th>Use if/else-if or switch?</th><th>Reason</th></tr></thead><tbody><tr><td>Letter grade code A/B/C/F</td><td></td><td></td></tr><tr><td>Temperature category using ranges</td><td></td><td></td></tr><tr><td>Menu option 1-5</td><td></td><td></td></tr><tr><td>Valid age 18 and above</td><td></td><td></td></tr></tbody></table></section>
+<section class="instruction-section"><h2>Part D: Missing break prediction</h2><pre><code>char grade = 'B';
+switch (grade) {
+    case 'A': System.out.println("Excellent");
+    case 'B': System.out.println("Good");
+    case 'C': System.out.println("Pass");
+    default: System.out.println("Invalid");
+}</code></pre><p>Write the exact output, then add the missing <code>break</code> statements.</p></section>
+<div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div>
+</main></body></html>

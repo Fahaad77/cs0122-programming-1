@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 5 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 5</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 5 Lab</p><h1 class="page-title">Loop-Based Number Statistics</h1><p class="lede">Build a console program that repeats input, counts values, calculates totals, and prints a multiplication table.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>LoopStats.java</strong></div><div><span>Focus</span><strong>while and for loops</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/LoopStats.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Build a console program that repeats input, counts values, calculates totals, and prints a multiplication table.</p><ul><li>Explain initialization, condition, body, update, and iteration.</li><li>Write while loops for condition-based repetition.</li><li>Write for loops for known-count repetition.</li><li>Trace counters, sums, and sentinel-controlled input.</li><li>Debug common infinite-loop mistakes.</li></ul></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class LoopStats {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter N: ");
+        int n = input.nextInt();
+
+        int counter = 1;
+        int sum = 0;
+        while (counter &lt;= n) {
+            sum += counter;
+            counter++;
+        }
+        System.out.println("Sum 1..N = " + sum);
+
+        System.out.println("Multiplication table for " + n);
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println(n + " x " + i + " = " + (n * i));
+        }
+
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Read the starter code and predict what it currently prints.</li><li>Compile the starter before editing.</li><li>Complete or extend the required feature list from the lab objective.</li><li>Run at least two test cases and record expected vs actual output.</li><li>Add comments only where they explain an important step.</li><li>Submit the Java file and a short trace/test table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Compile:
+javac LoopStats.java
+
+Run:
+java LoopStats
+
+Use your own inputs and compare expected vs actual output.</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>LoopStats.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

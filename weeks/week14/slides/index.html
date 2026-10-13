@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 14 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 14</p><h1>Course Completion</h1><p>Review the whole CS0122 toolkit and practice one final cumulative program.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today&apos;s teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept map</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span><span class="arrow">-&gt;</span><span class="node">Trace</span></div><div class="flow"><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide slide-question"><p class="kicker">Hook</p><h2>What can you build now?</h2><p>You can write programs that read input, make decisions, repeat work, store lists, process tables, and explain their behavior.</p></section>
+    <section class="slide slide-visual"><p class="kicker">Concept Map</p><h2>CS0122 in one view</h2><div class="flow"><span class="node">Java setup</span><span class="arrow">-&gt;</span><span class="node">Variables</span><span class="arrow">-&gt;</span><span class="node">Expressions</span><span class="arrow">-&gt;</span><span class="node">Selection</span><span class="arrow">-&gt;</span><span class="node">Loops</span><span class="arrow">-&gt;</span><span class="node">Arrays</span><span class="arrow">-&gt;</span><span class="node">Matrices</span></div></section>
+    <section class="slide"><p class="kicker">Official Scope</p><h2>Chapters 1-5 complete</h2><ul><li>Java and the development environment.</li><li>Variables, data, input, output, and operations.</li><li>Selection statements.</li><li>Looping and jumping statements.</li><li>Arrays and matrices.</li></ul></section>
+    <section class="slide slide-code"><p class="kicker">Full Program</p><h2>Search review</h2><pre><code>public class CourseReviewPractice {
+    public static void main(String[] args) {
+        int[] values = {4, 8, 15, 16, 23, 42};
+        int target = 16;
+        boolean found = false;
+
+        for (int i = 0; i &lt; values.length; i++) {
+            if (values[i] == target) {
+                System.out.println("Found at index " + i);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Target not found");
+        }
+    }
+}</code></pre></section>
+    <section class="slide slide-trace"><p class="kicker">Trace</p><h2>Search loop</h2><table class="trace-table"><tr><th>i</th><th>values[i]</th><th>target match?</th><th>found</th><th>action</th></tr><tr><td>0</td><td>4</td><td>false</td><td>false</td><td>continue</td></tr><tr><td>1</td><td>8</td><td>false</td><td>false</td><td>continue</td></tr><tr><td>2</td><td>15</td><td>false</td><td>false</td><td>continue</td></tr><tr><td>3</td><td>16</td><td>true</td><td>true</td><td>break</td></tr></table></section>
+    <section class="slide slide-question"><p class="kicker">Predict</p><h2>Change the target</h2><p>If <code>target = 99</code>, what prints? Which line proves your answer?</p></section>
+    <section class="slide slide-debug"><p class="kicker">Debug</p><h2>Cumulative mistakes</h2><ul><li>Class name and file name do not match.</li><li>Used <code>=</code> instead of <code>==</code>.</li><li>Loop condition uses <code>&lt;= length</code>.</li><li>Forgot to update a loop counter.</li><li>Integer division gives an unexpected result.</li></ul></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Final cumulative prompts</h2><ul><li>Count values greater than 10.</li><li>Find the smallest value.</li><li>Print all values and their indexes.</li><li>Convert the array to user input.</li></ul></section>
+    <section class="slide"><p class="kicker">Optional</p><h2>Next steps</h2><p>After CS0122, future courses can deepen methods, classes, objects, files, and larger program design. These are next steps, not required new CS0122 topics today.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Final programmer habits</h2><ul><li>Read requirements carefully.</li><li>Predict before running.</li><li>Trace variables and indexes.</li><li>Debug from the first error.</li><li>Test boundary cases.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

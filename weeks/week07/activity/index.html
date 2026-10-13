@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 7 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 7</a><span>/</span><span>Activity</span></nav>
+<p class="eyebrow">Week 7 Activity</p><h1 class="page-title">Midterm Review Studio</h1><p class="lede">Students review variables, input, expressions, selection, and loops through tracing and debugging.</p>
+<section class="instruction-section"><h2>Part A: Concept map</h2><p>Draw arrows connecting variable, input, expression, condition, loop, and output. Add one Java example for each.</p></section>
+<section class="instruction-section"><h2>Part B: Trace integrated code</h2><pre><code>import java.util.Scanner;
+
+public class ReviewPractice {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int count = 0;
+        int total = 0;
+        int value;
+
+        System.out.println("Enter positive numbers. Enter 0 to stop.");
+        System.out.print("Value: ");
+        value = input.nextInt();
+
+        while (value != 0) {
+            if (value &gt; 0) {
+                total += value;
+                count++;
+            }
+            System.out.print("Value: ");
+            value = input.nextInt();
+        }
+
+        if (count &gt; 0) {
+            double average = (double) total / count;
+            System.out.printf("Average: %.2f%n", average);
+        } else {
+            System.out.println("No positive values entered.");
+        }
+        input.close();
+    }
+}</code></pre><p>Trace for inputs <code>5, -2, 3, 0</code>.</p></section>
+<section class="instruction-section"><h2>Part C: Debug station</h2><p>Find syntax errors, type errors, and logic errors in a short review program. Explain the first compiler error before editing.</p></section>
+<section class="instruction-section"><h2>Part D: Mini practice test</h2><p>Create three questions: one predict-output, one fill-code, and one debug-code. Exchange with another pair.</p></section>
+<div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div>
+</main></body></html>

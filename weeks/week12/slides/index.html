@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 12 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 12</p><h1>Final Lab Prep</h1><p>Build the habits needed for an integrated coding lab.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today&apos;s teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span><span class="arrow">-&gt;</span><span class="node">Run</span></div><div class="flow"><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide slide-question"><p class="kicker">Hook</p><h2>The lab is a workflow</h2><p>Most mistakes happen from rushing. A strong workflow catches errors while the program is still small.</p></section>
+    <section class="slide slide-visual"><p class="kicker">Concept</p><h2>Lab workflow</h2><div class="flow"><span class="node">Read</span><span class="arrow">-&gt;</span><span class="node">Plan</span><span class="arrow">-&gt;</span><span class="node">Code small</span><span class="arrow">-&gt;</span><span class="node">Compile</span><span class="arrow">-&gt;</span><span class="node">Test</span><span class="arrow">-&gt;</span><span class="node">Trace</span></div></section>
+    <section class="slide"><p class="kicker">Checklist</p><h2>Before coding</h2><ul><li>What input is required?</li><li>What output is required?</li><li>Which variables and arrays are needed?</li><li>Which loops and conditions are needed?</li><li>What simple test case proves the logic?</li></ul></section>
+    <section class="slide slide-code"><p class="kicker">Full Program</p><h2>Integrated practice</h2><pre><code>import java.util.Scanner;
+
+public class LabReadinessPractice {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] values = new int[6];
+
+        for (int i = 0; i &lt; values.length; i++) {
+            System.out.print("Value " + (i + 1) + ": ");
+            values[i] = input.nextInt();
+        }
+
+        int evenCount = 0;
+        int total = 0;
+        for (int value : values) {
+            total += value;
+            if (value % 2 == 0) {
+                evenCount++;
+            }
+        }
+
+        System.out.println("Total: " + total);
+        System.out.println("Even count: " + evenCount);
+        System.out.printf("Average: %.2f%n", (double) total / values.length);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide slide-question"><p class="kicker">Predict</p><h2>Trace before running</h2><p>Inputs: 2, 5, 8, 11, 14, 17. Predict total, even count, and average.</p><table class="trace-table"><tr><th>value</th><th>total after</th><th>evenCount after</th></tr><tr><td>2</td><td></td><td></td></tr><tr><td>5</td><td></td><td></td></tr><tr><td>8</td><td></td><td></td></tr></table></section>
+    <section class="slide"><p class="kicker">Modify</p><h2>Extend safely</h2><ul><li>Add min and max.</li><li>Add count above average.</li><li>Keep each feature separate while testing.</li><li>Do not rewrite working code unless necessary.</li></ul></section>
+    <section class="slide slide-debug"><p class="kicker">Debug</p><h2>Common lab errors</h2><pre><code>for (int i = 0; i &lt;= values.length; i++) // bounds error
+if (value % 2 = 0)                   // assignment error
+average = total / values.length;      // integer division risk</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Compiler vs logic error</h2><table class="simple-table"><tr><th>Error type</th><th>What happens</th><th>First response</th></tr><tr><td>Compiler</td><td>Program does not run</td><td>Read first message</td></tr><tr><td>Logic</td><td>Program runs but answer is wrong</td><td>Trace variables</td></tr></table></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Mini lab prompts</h2><ul><li>Count values divisible by 3.</li><li>Find the largest input.</li><li>Print only values above the average.</li><li>Stop and explain each loop condition.</li></ul></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Lab-ready habits</h2><ul><li>Plan before typing.</li><li>Compile early.</li><li>Use small tests.</li><li>Trace values when output surprises you.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

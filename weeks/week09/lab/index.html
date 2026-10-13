@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 9 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 9</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 9 Lab</p><h1 class="page-title">Temperature Analyzer</h1><p class="lede">Analyze seven temperatures using array traversal, sum, average, min, max, counting, and search.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>TemperatureAnalyzer.java</strong></div><div><span>Focus</span><strong>array operations</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/TemperatureAnalyzer.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Analyze seven temperatures using array traversal, sum, average, min, max, counting, and search.</p><ul><li>Apply standard 1D array operations.</li><li>Combine loops, conditions, and arrays.</li><li>Trace array-processing variables across iterations.</li><li>Debug off-by-one and wrong-initial-value errors.</li></ul></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class TemperatureAnalyzer {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double[] temperatures = new double[7];
+        double sum = 0;
+
+        for (int i = 0; i &lt; temperatures.length; i++) {
+            System.out.print("Temperature day " + (i + 1) + ": ");
+            temperatures[i] = input.nextDouble();
+            sum += temperatures[i];
+        }
+
+        double min = temperatures[0];
+        double max = temperatures[0];
+        int aboveThirty = 0;
+
+        for (int i = 0; i &lt; temperatures.length; i++) {
+            if (temperatures[i] &lt; min) min = temperatures[i];
+            if (temperatures[i] &gt; max) max = temperatures[i];
+            if (temperatures[i] &gt;= 30) aboveThirty++;
+        }
+
+        System.out.printf("Average: %.2f%n", sum / temperatures.length);
+        System.out.println("Minimum: " + min);
+        System.out.println("Maximum: " + max);
+        System.out.println("Days &gt;= 30: " + aboveThirty);
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Read the starter code and predict what it currently prints.</li><li>Compile the starter before editing.</li><li>Complete or extend the required feature list from the lab objective.</li><li>Run at least two test cases and record expected vs actual output.</li><li>Add comments only where they explain an important step.</li><li>Submit the Java file and a short trace/test table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Compile:
+javac TemperatureAnalyzer.java
+
+Run:
+java TemperatureAnalyzer
+
+Use your own inputs and compare expected vs actual output.</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>TemperatureAnalyzer.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 7 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 7</p><h1>Midterm Review</h1><p>The midterm checks whether separate ideas can work together in one program.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 7</h2><ul><li>Review the complete pre-midterm concept chain.</li><li>Trace integrated code with variables, input, expressions, conditions, and loops.</li><li>Debug common beginner errors systematically.</li><li>Prepare for assessment without exposing confidential assessment material.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Assessment</p><h2>Midterm week</h2><p>The official specification places the Midterm in Week 7. This module reviews and practices; it does not publish graded exam answers.</p></section>
+    <section class="slide"><p class="kicker">Concept Map</p><h2>From data to decisions to repetition</h2><div class="flow"><span class="node">Variables</span><span class="arrow">-&gt;</span><span class="node">Input</span><span class="arrow">-&gt;</span><span class="node">Expressions</span><span class="arrow">-&gt;</span><span class="node">Selection</span><span class="arrow">-&gt;</span><span class="node">Loops</span></div></section>
+    <section class="slide"><p class="kicker">Review</p><h2>Input and type safety</h2><pre><code>Scanner input = new Scanner(System.in);
+System.out.print("Age: ");
+int age = input.nextInt();
+input.nextLine();
+System.out.print("Name: ");
+String name = input.nextLine();</code></pre></section>
+    <section class="slide"><p class="kicker">Review</p><h2>Expression traps</h2><table class="trace-table"><thead><tr><th>Expression</th><th>Watch for</th></tr></thead><tbody><tr><td>10 / 4</td><td>integer division</td></tr><tr><td>10 % 4</td><td>remainder</td></tr><tr><td>"A" + 3 + 4</td><td>left-to-right string concatenation</td></tr><tr><td>(double) total / count</td><td>casting before division</td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Review</p><h2>Selection traps</h2><ul><li>Use <code>==</code> for comparison, not <code>=</code>.</li><li>Use <code>&&</code> when both conditions must be true.</li><li>Use braces for blocks.</li><li>Order else-if ranges from most specific to less specific.</li></ul></section>
+    <section class="slide"><p class="kicker">Review</p><h2>Loop traps</h2><ul><li>Missing update causes infinite loops.</li><li>Wrong boundary causes one extra or one missing iteration.</li><li>Sentinel value should not be counted unless required.</li></ul></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Integrated positive average</h2><pre><code>import java.util.Scanner;
+
+public class ReviewPractice {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int count = 0;
+        int total = 0;
+        int value;
+
+        System.out.println("Enter positive numbers. Enter 0 to stop.");
+        System.out.print("Value: ");
+        value = input.nextInt();
+
+        while (value != 0) {
+            if (value &gt; 0) {
+                total += value;
+                count++;
+            }
+            System.out.print("Value: ");
+            value = input.nextInt();
+        }
+
+        if (count &gt; 0) {
+            double average = (double) total / count;
+            System.out.printf("Average: %.2f%n", average);
+        } else {
+            System.out.println("No positive values entered.");
+        }
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Variable table</h2><table class="trace-table"><thead><tr><th>Input</th><th>value</th><th>count</th><th>total</th><th>average printed?</th></tr></thead><tbody><tr><td>5</td><td></td><td></td><td></td><td></td></tr><tr><td>-2</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td></tr><tr><td>0</td><td></td><td></td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>Find five issues</h2><pre><code>Scanner input = new Scanner(System.in)
+int total = 0;
+int count = 0;
+while count &lt; 5 {
+    System.out.print("Value: ");
+    int value = input.nextInt();
+    if (value = 0) {
+        total += value;
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Code Completion</p><h2>Fill missing loop pieces</h2><pre><code>int total = 0;
+for (int i = ____; i ____ 5; i____) {
+    System.out.print("Score: ");
+    int score = input.nextInt();
+    total ____ score;
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Mini Practice</p><h2>Predict, trace, debug</h2><p>Work in pairs: one person traces, one person challenges every condition and update.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Review strategy</h2><ul><li>Read code top to bottom.</li><li>Make a trace table.</li><li>Check types and operators.</li><li>Run after predicting.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

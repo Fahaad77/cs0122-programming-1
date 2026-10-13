@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 6 Activity - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 6</a><span>/</span><span>Activity</span></nav>
+<p class="eyebrow">Week 6 Activity</p><h1 class="page-title">Loop Control Workshop</h1><p class="lede">Students trace do-while menus, nested loops, break, continue, and return behavior.</p>
+<section class="instruction-section"><h2>Part A: Pre-test or post-test?</h2><table class="trace-table"><thead><tr><th>Scenario</th><th>while/for/do-while</th><th>Reason</th></tr></thead><tbody><tr><td>Menu must appear once</td><td></td><td></td></tr><tr><td>Print numbers 1-20</td><td></td><td></td></tr><tr><td>Read until -1</td><td></td><td></td></tr></tbody></table></section>
+<section class="instruction-section"><h2>Part B: Trace nested loops</h2><pre><code>for (int row = 1; row &lt;= 3; row++) {
+    for (int col = 1; col &lt;= 2; col++) {
+        System.out.println(row + "," + col);
+    }
+}</code></pre><p>Write the exact output.</p></section>
+<section class="instruction-section"><h2>Part C: break vs continue</h2><table class="trace-table"><thead><tr><th>Code action</th><th>Meaning</th><th>Output effect</th></tr></thead><tbody><tr><td>break when i == 3</td><td></td><td></td></tr><tr><td>continue when i == 3</td><td></td><td></td></tr><tr><td>return before loop ends</td><td></td><td></td></tr></tbody></table></section>
+<section class="instruction-section"><h2>Part D: Debug</h2><pre><code>int i = 1;
+while (i &lt;= 5) {
+    if (i == 3) continue;
+    System.out.println(i);
+    i++;
+}</code></pre><p>Find the infinite-loop risk and repair it.</p></section>
+<div class="control-panel"><a class="button primary" href="../lab/index.html">Continue to lab</a><a class="button" href="../slides/index.html">Review slides</a></div>
+</main></body></html>

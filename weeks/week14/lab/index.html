@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 14 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 14</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 14 Lab</p><h1 class="page-title">Course Completion and Cumulative Practice</h1><p class="lede">Complete the course with a concept map, cumulative tracing, debugging review, and beginner-friendly next steps.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>CourseReviewPractice.java</strong></div><div><span>Focus</span><strong>Cumulative review</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/CourseReviewPractice.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Complete the course with a concept map, cumulative tracing, debugging review, and beginner-friendly next steps.</p></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>public class CourseReviewPractice {
+    public static void main(String[] args) {
+        int[] values = {4, 8, 15, 16, 23, 42};
+        int target = 16;
+        boolean found = false;
+
+        for (int i = 0; i &lt; values.length; i++) {
+            if (values[i] == target) {
+                System.out.println("Found at index " + i);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Target not found");
+        }
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Run the starter and trace each loop iteration.</li><li>Change the target to a value that is not in the array.</li><li>Remove break temporarily, predict the difference, then restore it.</li><li>Add a count of how many values are greater than 10.</li><li>Write a final concept map connecting variables, conditions, loops, and arrays.</li><li>Submit the completed practice file and one trace table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Found at index 3</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>CourseReviewPractice.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

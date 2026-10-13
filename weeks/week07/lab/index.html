@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 7 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 7</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 7 Lab</p><h1 class="page-title">Integrated Review Lab</h1><p class="lede">Complete a review program that combines input, conditions, loops, running totals, and formatted output.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>ReviewPractice.java</strong></div><div><span>Focus</span><strong>midterm readiness</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/ReviewPractice.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Complete a review program that combines input, conditions, loops, running totals, and formatted output.</p><ul><li>Review the complete pre-midterm concept chain.</li><li>Trace integrated code with variables, input, expressions, conditions, and loops.</li><li>Debug common beginner errors systematically.</li><li>Prepare for assessment without exposing confidential assessment material.</li></ul></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class ReviewPractice {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int count = 0;
+        int total = 0;
+        int value;
+
+        System.out.println("Enter positive numbers. Enter 0 to stop.");
+        System.out.print("Value: ");
+        value = input.nextInt();
+
+        while (value != 0) {
+            if (value &gt; 0) {
+                total += value;
+                count++;
+            }
+            System.out.print("Value: ");
+            value = input.nextInt();
+        }
+
+        if (count &gt; 0) {
+            double average = (double) total / count;
+            System.out.printf("Average: %.2f%n", average);
+        } else {
+            System.out.println("No positive values entered.");
+        }
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Read the starter code and predict what it currently prints.</li><li>Compile the starter before editing.</li><li>Complete or extend the required feature list from the lab objective.</li><li>Run at least two test cases and record expected vs actual output.</li><li>Add comments only where they explain an important step.</li><li>Submit the Java file and a short trace/test table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Compile:
+javac ReviewPractice.java
+
+Run:
+java ReviewPractice
+
+Use your own inputs and compare expected vs actual output.</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>ReviewPractice.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

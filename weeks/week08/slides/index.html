@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 8 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 8</p><h1>Arrays I</h1><p>When one program needs many related values, separate variables stop scaling. Arrays give many boxes one name.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 8</h2><ul><li>Explain array concept and same-type storage.</li><li>Declare, create, initialize, access, and update 1D arrays.</li><li>Use 0-based indexes and the length property safely.</li><li>Traverse arrays with for loops and read values with Scanner.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Why arrays?</h2><p>Arrays store multiple values of the same type under one variable name.</p></section>
+    <section class="slide"><p class="kicker">Concept</p><h2>Many boxes, one name</h2><div class="memory-grid"><div class="memory-box"><strong>grades[0]</strong><code>90</code><span>index 0</span></div><div class="memory-box"><strong>grades[1]</strong><code>85</code><span>index 1</span></div><div class="memory-box"><strong>grades[2]</strong><code>77</code><span>index 2</span></div></div></section>
+    <section class="slide"><p class="kicker">Syntax</p><h2>Declare and create</h2><pre><code>int[] grades;
+grades = new int[5];
+
+String[] names = {"Sara", "Ali", "Mona"};</code></pre></section>
+    <section class="slide"><p class="kicker">Rule</p><h2>Indexes start at 0</h2><p>An array of length 5 has indexes <code>0, 1, 2, 3, 4</code>. The last valid index is <code>length - 1</code>.</p></section>
+    <section class="slide"><p class="kicker">Access</p><h2>Read and update elements</h2><pre><code>grades[0] = 95;
+grades[1] = 88;
+System.out.println(grades[0]);
+grades[1] = grades[1] + 2;</code></pre></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Print all elements</h2><pre><code>public class PrintArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30};
+        for (int i = 0; i &lt; numbers.length; i++) {
+            System.out.println("Index " + i + " = " + numbers[i]);
+        }
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Traversal pointer</h2><table class="trace-table"><thead><tr><th>i</th><th>numbers[i]</th><th>Printed</th></tr></thead><tbody><tr><td>0</td><td>10</td><td></td></tr><tr><td>1</td><td>20</td><td></td></tr><tr><td>2</td><td>30</td><td></td></tr><tr><td>3</td><td>out of bounds</td><td>loop stops before this</td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Read grades with Scanner</h2><pre><code>import java.util.Scanner;
+
+public class GradesArray {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] grades = new int[5];
+        int sum = 0;
+
+        for (int i = 0; i &lt; grades.length; i++) {
+            System.out.print("Grade " + (i + 1) + ": ");
+            grades[i] = input.nextInt();
+        }
+
+        System.out.println("Stored grades:");
+        for (int i = 0; i &lt; grades.length; i++) {
+            System.out.println("Index " + i + " = " + grades[i]);
+            sum += grades[i];
+        }
+
+        double average = (double) sum / grades.length;
+        System.out.printf("Average: %.2f%n", average);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>ArrayIndexOutOfBoundsException</h2><pre><code>int[] values = {4, 8, 15};
+System.out.println(values[3]); // indexes are 0, 1, 2 only</code></pre><p>Use <code>i &lt; values.length</code>, not <code>i &lt;= values.length</code>.</p></section>
+    <section class="slide"><p class="kicker">Modify</p><h2>Find maximum starter idea</h2><pre><code>int max = grades[0];
+for (int i = 1; i &lt; grades.length; i++) {
+    if (grades[i] &gt; max) {
+        max = grades[i];
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Index questions</h2><table class="trace-table"><thead><tr><th>Array length</th><th>Valid indexes</th><th>Last index</th></tr></thead><tbody><tr><td>3</td><td></td><td></td></tr><tr><td>5</td><td></td><td></td></tr><tr><td>10</td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Array essentials</h2><ul><li>Same type.</li><li>Fixed length after creation.</li><li>0-based indexes.</li><li>Use loops for traversal.</li><li>Use <code>length</code> to avoid magic numbers.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

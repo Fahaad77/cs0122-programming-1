@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 6 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 6</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 6 Lab</p><h1 class="page-title">Interactive Repeating Menu</h1><p class="lede">Build a menu that repeats until Exit, uses switch, validates choices, prints nested-loop patterns, and demonstrates break/continue.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>RepeatingMenu.java</strong></div><div><span>Focus</span><strong>do-while, nested loops, break/continue</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/RepeatingMenu.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Build a menu that repeats until Exit, uses switch, validates choices, prints nested-loop patterns, and demonstrates break/continue.</p><ul><li>Use do-while when the body must run at least once.</li><li>Trace nested loops with rows and columns.</li><li>Use break to leave a loop and continue to skip an iteration.</li><li>Explain return as leaving the current method without turning CS0122 into an OOP course.</li></ul></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class RepeatingMenu {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("1. Print table");
+            System.out.println("2. Find first divisor");
+            System.out.println("3. Skip negatives in sample data");
+            System.out.println("0. Exit");
+            System.out.print("Choice: ");
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    for (int row = 1; row &lt;= 5; row++) {
+                        for (int col = 1; col &lt;= 5; col++) {
+                            System.out.printf("%4d", row * col);
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 2:
+                    System.out.print("Number: ");
+                    int number = input.nextInt();
+                    for (int d = 2; d &lt;= number; d++) {
+                        if (number % d == 0) {
+                            System.out.println("First divisor: " + d);
+                            break;
+                        }
+                    }
+                    break;
+                case 3:
+                    int[] values = {4, -2, 7, -9, 3};
+                    for (int value : values) {
+                        if (value &lt; 0) {
+                            continue;
+                        }
+                        System.out.println("Accepted: " + value);
+                    }
+                    break;
+                case 0:
+                    System.out.println("Goodbye");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        } while (choice != 0);
+
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Read the starter code and predict what it currently prints.</li><li>Compile the starter before editing.</li><li>Complete or extend the required feature list from the lab objective.</li><li>Run at least two test cases and record expected vs actual output.</li><li>Add comments only where they explain an important step.</li><li>Submit the Java file and a short trace/test table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Compile:
+javac RepeatingMenu.java
+
+Run:
+java RepeatingMenu
+
+Use your own inputs and compare expected vs actual output.</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>RepeatingMenu.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

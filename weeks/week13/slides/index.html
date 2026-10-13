@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 13 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 13</p><h1>Consolidation</h1><p>Polish projects, test carefully, and explain your code like a programmer.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today&apos;s teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Pseudocode</span><span class="arrow">-&gt;</span><span class="node">Full Program</span></div><div class="flow"><span class="node">Predict</span><span class="arrow">-&gt;</span><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide slide-question"><p class="kicker">Hook</p><h2>Can you explain it?</h2><p>A working program is not finished until you can explain its data, decisions, loops, and output.</p></section>
+    <section class="slide slide-visual"><p class="kicker">Concept</p><h2>From problem to program</h2><div class="flow"><span class="node">Problem</span><span class="arrow">-&gt;</span><span class="node">Inputs</span><span class="arrow">-&gt;</span><span class="node">Processing</span><span class="arrow">-&gt;</span><span class="node">Outputs</span><span class="arrow">-&gt;</span><span class="node">Tests</span></div></section>
+    <section class="slide"><p class="kicker">Pseudocode</p><h2>Write the algorithm first</h2><pre><code>repeat for each student
+    read name
+    read score
+print report
+for each score
+    decide pass or needs support</code></pre></section>
+    <section class="slide slide-visual"><p class="kicker">Data Model</p><h2>Parallel arrays</h2><table class="simple-table"><tr><th>index</th><td>0</td><td>1</td><td>2</td></tr><tr><th>names</th><td>Sara</td><td>Amal</td><td>Noura</td></tr><tr><th>scores</th><td>92</td><td>58</td><td>70</td></tr></table><p>Same index, related information.</p></section>
+    <section class="slide slide-code"><p class="kicker">Full Program</p><h2>Project polish</h2><pre><code>import java.util.Scanner;
+
+public class ProjectPolish {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] names = new String[3];
+        int[] scores = new int[3];
+
+        for (int i = 0; i &lt; names.length; i++) {
+            System.out.print("Name " + (i + 1) + ": ");
+            names[i] = input.nextLine();
+            System.out.print("Score: ");
+            scores[i] = input.nextInt();
+            input.nextLine();
+        }
+
+        System.out.println("Report");
+        for (int i = 0; i &lt; names.length; i++) {
+            String status = scores[i] &gt;= 60 ? "Pass" : "Needs support";
+            System.out.println(names[i] + " - " + scores[i] + " - " + status);
+        }
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide slide-question"><p class="kicker">Predict</p><h2>Boundary thinking</h2><p>What status prints when the score is 60? What about 59? Explain using the condition.</p></section>
+    <section class="slide"><p class="kicker">Testing</p><h2>Use a test table</h2><table class="trace-table"><tr><th>Case</th><th>Input</th><th>Expected output</th><th>Actual output</th></tr><tr><td>Boundary</td><td>60</td><td>Pass</td><td></td></tr><tr><td>Below</td><td>59</td><td>Needs support</td><td></td></tr><tr><td>High</td><td>100</td><td>Pass</td><td></td></tr></table></section>
+    <section class="slide slide-debug"><p class="kicker">Debug</p><h2>Scanner line issue</h2><p>After <code>nextInt()</code>, use <code>nextLine()</code> to consume the end of the line before reading the next name.</p></section>
+    <section class="slide"><p class="kicker">Optional</p><h2>Enrichment boundary</h2><p>Optional improvements may make output cleaner, but required CS0122 work remains variables, input, expressions, selection, loops, arrays, and matrices.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Project completion checklist</h2><ul><li>Every feature has a test case.</li><li>Every loop has a purpose.</li><li>Every array index is checked.</li><li>You can explain the program without reading every line.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

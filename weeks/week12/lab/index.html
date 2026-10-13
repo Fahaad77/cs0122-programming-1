@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 12 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 12</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 12 Lab</p><h1 class="page-title">Final Lab Preparation: Integrated Coding Practice</h1><p class="lede">Practice complete beginner Java programs that combine selection, loops, arrays, tracing, and debugging.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>LabReadinessPractice.java</strong></div><div><span>Focus</span><strong>Final lab readiness</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/LabReadinessPractice.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Practice complete beginner Java programs that combine selection, loops, arrays, tracing, and debugging.</p></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class LabReadinessPractice {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] values = new int[6];
+
+        for (int i = 0; i &lt; values.length; i++) {
+            System.out.print("Value " + (i + 1) + ": ");
+            values[i] = input.nextInt();
+        }
+
+        int evenCount = 0;
+        int total = 0;
+        for (int value : values) {
+            total += value;
+            if (value % 2 == 0) {
+                evenCount++;
+            }
+        }
+
+        System.out.println("Total: " + total);
+        System.out.println("Even count: " + evenCount);
+        System.out.printf("Average: %.2f%n", (double) total / values.length);
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Run the starter and trace total and evenCount.</li><li>Add a count of values greater than the average.</li><li>Add min and max calculations.</li><li>Create three test cases: mixed values, all even values, and all odd values.</li><li>Write a short debugging note for one mistake you fixed.</li><li>Submit only your own completed Java file and trace table.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Value 1: 4
+Value 2: 7
+Value 3: 10
+Value 4: 3
+Value 5: 6
+Value 6: 9
+Total: 39
+Even count: 3
+Average: 6.50</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>LabReadinessPractice.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

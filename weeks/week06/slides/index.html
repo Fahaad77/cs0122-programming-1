@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 6 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 6</p><h1>Loops II</h1><p>Menus, grids, and early exits need loop patterns beyond simple counting.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 6</h2><ul><li>Use do-while when the body must run at least once.</li><li>Trace nested loops with rows and columns.</li><li>Use break to leave a loop and continue to skip an iteration.</li><li>Explain return as leaving the current method without turning CS0122 into an OOP course.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Post-test repetition</h2><p>A do-while loop runs the body first, then checks the condition.</p></section>
+    <section class="slide"><p class="kicker">Syntax</p><h2>do-while</h2><pre><code>int choice;
+do {
+    System.out.println("1. Continue");
+    System.out.println("0. Exit");
+    choice = input.nextInt();
+} while (choice != 0);</code></pre></section>
+    <section class="slide"><p class="kicker">Compare</p><h2>Pre-test vs post-test</h2><table class="trace-table"><thead><tr><th>Loop</th><th>Checks condition</th><th>Body may run zero times?</th><th>Good use</th></tr></thead><tbody><tr><td>while</td><td>before body</td><td>yes</td><td>input until sentinel</td></tr><tr><td>for</td><td>before body</td><td>yes</td><td>known count</td></tr><tr><td>do-while</td><td>after body</td><td>no</td><td>menus</td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Menu repeats until Exit</h2><pre><code>import java.util.Scanner;
+
+public class MenuLoop {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("1. Say hello");
+            System.out.println("0. Exit");
+            System.out.print("Choice: ");
+            choice = input.nextInt();
+            if (choice == 1) {
+                System.out.println("Hello");
+            } else if (choice != 0) {
+                System.out.println("Invalid choice");
+            }
+        } while (choice != 0);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 02</p><h2>Nested loops</h2><p>For every one outer-loop iteration, the inner loop can run many times.</p></section>
+    <section class="slide"><p class="kicker">Visual Model</p><h2>Rows and columns</h2><div class="diagram"><div class="flow"><span class="node">row = 1</span><span class="arrow">-&gt;</span><span class="node">col 1,2,3</span><span class="arrow">-&gt;</span><span class="node">next row</span></div></div></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Multiplication grid</h2><pre><code>public class MultiplicationGrid {
+    public static void main(String[] args) {
+        for (int row = 1; row &lt;= 5; row++) {
+            for (int col = 1; col &lt;= 5; col++) {
+                System.out.printf("%4d", row * col);
+            }
+            System.out.println();
+        }
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Nested loop table</h2><table class="trace-table"><thead><tr><th>Outer row</th><th>Inner col values</th><th>How many prints?</th></tr></thead><tbody><tr><td>1</td><td>1,2,3,4,5</td><td></td></tr><tr><td>2</td><td>1,2,3,4,5</td><td></td></tr><tr><td>5</td><td>1,2,3,4,5</td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Pattern</p><h2>Rectangle of stars</h2><pre><code>for (int row = 1; row &lt;= 3; row++) {
+    for (int col = 1; col &lt;= 6; col++) {
+        System.out.print("*");
+    }
+    System.out.println();
+}</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 03</p><h2>Jumping statements</h2><p><code>break</code>, <code>continue</code>, and <code>return</code> change the normal loop/method flow.</p></section>
+    <section class="slide"><p class="kicker">break</p><h2>Leave the loop</h2><pre><code>for (int i = 1; i &lt;= 10; i++) {
+    if (i == 4) {
+        break;
+    }
+    System.out.println(i);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">continue</p><h2>Skip this iteration</h2><pre><code>for (int i = 1; i &lt;= 10; i++) {
+    if (i == 4) {
+        continue;
+    }
+    System.out.println(i);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">return</p><h2>Leave the method</h2><pre><code>public static void main(String[] args) {
+    int age = -5;
+    if (age &lt; 0) {
+        System.out.println("Invalid age");
+        return;
+    }
+    System.out.println("Age accepted");
+}</code></pre><p class="small">For CS0122, use this as a simple early-exit idea. Detailed methods come later.</p></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>continue in while loops</h2><pre><code>int i = 0;
+while (i &lt; 5) {
+    if (i == 2) {
+        continue;
+    }
+    i++;
+}</code></pre><p>The update is skipped when <code>i == 2</code>. Fix by updating before continue or changing the structure.</p></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Predict break/continue output</h2><table class="trace-table"><thead><tr><th>Statement</th><th>Printed values</th><th>Why</th></tr></thead><tbody><tr><td>break at 4</td><td></td><td></td></tr><tr><td>continue at 4</td><td></td><td></td></tr><tr><td>return before final print</td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Lab</p><h2>Repeating menu</h2><p>Use do-while + switch for the menu, nested loops for grids, and break/continue for controlled skipping.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Three exit ideas</h2><ul><li><code>break</code>: leave loop or switch.</li><li><code>continue</code>: skip to next loop iteration.</li><li><code>return</code>: leave current method.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

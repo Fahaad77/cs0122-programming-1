@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 4 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 4</p><h1>Selection Consolidation</h1><p>Programs choose a path. This week turns scattered decision examples into one clean mental model.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 4</h2><ul><li>Trace which branch executes in an if/else-if/switch program.</li><li>Use braces to control blocks and avoid dangling-else confusion.</li><li>Choose between if/else-if, ternary expressions, and switch.</li><li>Debug missing break, invalid conditions, and weak validation.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Selection as a roadmap</h2><p>A condition asks a yes/no question. Java uses the answer to choose the next statement or block.</p><div class="flow"><span class="node">Input</span><span class="arrow">-&gt;</span><span class="node">Condition</span><span class="arrow">-&gt;</span><span class="node">Branch</span><span class="arrow">-&gt;</span><span class="node">Continue</span></div></section>
+    <section class="slide"><p class="kicker">Review</p><h2>Boolean conditions</h2><pre><code>int age = 19;
+boolean hasId = true;
+boolean canRegister = age &gt;= 18 &amp;&amp; hasId;
+System.out.println(canRegister);</code></pre></section>
+    <section class="slide"><p class="kicker">Visual Model</p><h2>if / else flow</h2><div class="diagram"><div class="flow"><span class="node">condition?</span><span class="arrow">true</span><span class="node">if block</span><span class="arrow">false</span><span class="node">else block</span></div></div><p class="small">Exactly one path is selected in a normal if/else.</p></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Positive, negative, or zero</h2><pre><code>import java.util.Scanner;
+
+public class NumberSign {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = input.nextInt();
+
+        if (number &gt; 0) {
+            System.out.println("Positive");
+        } else if (number &lt; 0) {
+            System.out.println("Negative");
+        } else {
+            System.out.println("Zero");
+        }
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>GPA ladder</h2><table class="trace-table"><thead><tr><th>gpa</th><th>First true condition</th><th>Output</th></tr></thead><tbody><tr><td>4.8</td><td></td><td></td></tr><tr><td>3.2</td><td></td><td></td></tr><tr><td>1.9</td><td></td><td></td></tr><tr><td>5.7</td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>Dangling else</h2><pre><code>if (x &gt; 5)
+    if (y &gt; 5)
+        System.out.println("Both large");
+else
+    System.out.println("x is not large");</code></pre><p>Use braces to show which <code>if</code> owns the <code>else</code>.</p></section>
+    <section class="slide"><p class="kicker">Concept</p><h2>Ternary operator ?:</h2><p>Use the ternary operator only for a short value choice, not for complex logic.</p><pre><code>String parity = number % 2 == 0 ? "even" : "odd";</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 02</p><h2>switch/case selection</h2><p>Use switch when one expression is compared to fixed values.</p></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Restaurant menu switch</h2><pre><code>import java.util.Scanner;
+
+public class RestaurantMenu {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("1. Burger");
+        System.out.println("2. Pasta");
+        System.out.println("3. Salad");
+        System.out.print("Choice: ");
+        int choice = input.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Burger selected");
+                break;
+            case 2:
+                System.out.println("Pasta selected");
+                break;
+            case 3:
+                System.out.println("Salad selected");
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Predict</p><h2>Missing break behavior</h2><pre><code>int choice = 2;
+switch (choice) {
+    case 1: System.out.println("Burger");
+    case 2: System.out.println("Pasta");
+    case 3: System.out.println("Salad");
+    default: System.out.println("Invalid");
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Rules</p><h2>When switch is appropriate</h2><ul><li>Good: exact menu numbers, letter codes, simple command words.</li><li>Not good: ranges such as GPA >= 4.5.</li><li>Use <code>default</code> for unexpected values.</li><li>Use <code>break</code> unless fall-through is intentional.</li></ul></section>
+    <section class="slide"><p class="kicker">Validation</p><h2>Guard bad input</h2><pre><code>if (choice &lt; 1 || choice &gt; 3) {
+    System.out.println("Choose 1, 2, or 3.");
+} else {
+    System.out.println("Processing choice " + choice);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Practice</p><h2>Choose the structure</h2><table class="trace-table"><thead><tr><th>Problem</th><th>Best structure</th><th>Why</th></tr></thead><tbody><tr><td>Even or odd</td><td></td><td></td></tr><tr><td>GPA category</td><td></td><td></td></tr><tr><td>Menu number 1-4</td><td></td><td></td></tr><tr><td>Can register if age and ID valid</td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Lab</p><h2>Build the menu program</h2><p>Use if/else-if for validation and category decisions, then switch for fixed menu actions.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Selection checklist</h2><ul><li>Conditions must be boolean.</li><li>Braces protect blocks.</li><li>Order matters in else-if ladders.</li><li>switch compares exact values.</li><li>Validation should happen before trusting input.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

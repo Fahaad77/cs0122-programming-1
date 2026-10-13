@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 10 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 10</p><h1>2D Arrays</h1><p>A 2D array is a table: rows and columns stored under one name.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 10</h2><ul><li>Model 2D arrays as rows and columns.</li><li>Declare, initialize, access, and update matrix elements.</li><li>Use nested loops to traverse a matrix.</li><li>Calculate row totals, column totals, and overall totals.</li><li>Connect matrix work to the group project checkpoint.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Matrix concept</h2><p>A matrix stores data in rows and columns. Java represents this as a two-dimensional array.</p></section>
+    <section class="slide"><p class="kicker">Visual Model</p><h2>Rows and columns</h2><table class="simple-table"><tr><th></th><th>col 0</th><th>col 1</th><th>col 2</th></tr><tr><th>row 0</th><td>[0][0]</td><td>[0][1]</td><td>[0][2]</td></tr><tr><th>row 1</th><td>[1][0]</td><td>[1][1]</td><td>[1][2]</td></tr></table></section>
+    <section class="slide"><p class="kicker">Syntax</p><h2>Declare and initialize</h2><pre><code>int[][] numbers = {
+    {1, 4, 2},
+    {3, 6, 8}
+};</code></pre></section>
+    <section class="slide"><p class="kicker">Access</p><h2>Use row then column</h2><pre><code>System.out.println(numbers[1][2]); // 8
+numbers[0][1] = 9;</code></pre></section>
+    <section class="slide"><p class="kicker">Lengths</p><h2>Rows and columns</h2><pre><code>int rows = numbers.length;
+int columnsInRow0 = numbers[0].length;</code></pre></section>
+    <section class="slide"><p class="kicker">Traversal</p><h2>Nested loops</h2><pre><code>for (int row = 0; row &lt; numbers.length; row++) {
+    for (int col = 0; col &lt; numbers[row].length; col++) {
+        System.out.println(numbers[row][col]);
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Matrix processor</h2><pre><code>import java.util.Scanner;
+
+public class MatrixProcessor {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[][] sales = new int[3][4];
+        int total = 0;
+
+        for (int row = 0; row &lt; sales.length; row++) {
+            for (int col = 0; col &lt; sales[row].length; col++) {
+                System.out.print("Sales row " + row + ", col " + col + ": ");
+                sales[row][col] = input.nextInt();
+                total += sales[row][col];
+            }
+        }
+
+        System.out.println("Matrix:");
+        for (int row = 0; row &lt; sales.length; row++) {
+            int rowTotal = 0;
+            for (int col = 0; col &lt; sales[row].length; col++) {
+                System.out.printf("%5d", sales[row][col]);
+                rowTotal += sales[row][col];
+            }
+            System.out.println(" | row total = " + rowTotal);
+        }
+
+        System.out.println("Overall total: " + total);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Traversal path</h2><table class="trace-table"><thead><tr><th>row</th><th>col</th><th>element visited</th></tr></thead><tbody><tr><td>0</td><td>0</td><td></td></tr><tr><td>0</td><td>1</td><td></td></tr><tr><td>0</td><td>2</td><td></td></tr><tr><td>1</td><td>0</td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Row totals</p><h2>Sum one row at a time</h2><pre><code>for (int row = 0; row &lt; sales.length; row++) {
+    int rowTotal = 0;
+    for (int col = 0; col &lt; sales[row].length; col++) {
+        rowTotal += sales[row][col];
+    }
+    System.out.println("Row total: " + rowTotal);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Column totals</p><h2>Rectangular matrix columns</h2><pre><code>for (int col = 0; col &lt; sales[0].length; col++) {
+    int columnTotal = 0;
+    for (int row = 0; row &lt; sales.length; row++) {
+        columnTotal += sales[row][col];
+    }
+    System.out.println("Column total: " + columnTotal);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Project</p><h2>Group project checkpoint</h2><p>Weeks 10-11 align with the official Group Project timing. Choose a beginner project that combines input, selection, loops, and arrays.</p></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>Swapped indexes</h2><pre><code>matrix[col][row] // often wrong when you mean row first
+matrix[row][col] // row first, then column</code></pre></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>2D array checklist</h2><ul><li>First index is row.</li><li>Second index is column.</li><li>Outer loop often rows.</li><li>Inner loop often columns.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>

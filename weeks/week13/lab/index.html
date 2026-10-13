@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Week 13 Lab - CS0122</title><link rel="stylesheet" href="../../../assets/css/site.css"></head>
+<body><main class="page-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../index.html">Course Home</a><span>/</span><a href="../index.html">Week 13</a><span>/</span><span>Lab</span></nav>
+<p class="eyebrow">Week 13 Lab</p><h1 class="page-title">Consolidation and Project Completion</h1><p class="lede">Use cumulative problem solving, project polishing, testing, and explanation practice to strengthen the official Chapters 1-5 skills.</p>
+<div class="meta-strip"><div><span>Tool</span><strong>VS Code terminal</strong></div><div><span>File</span><strong>ProjectPolish.java</strong></div><div><span>Focus</span><strong>Project testing and explanation</strong></div></div>
+<div class="control-panel"><a class="button primary" href="starter/ProjectPolish.java">Open starter Java</a></div>
+<section class="instruction-section"><h2>Objective</h2><p>Use cumulative problem solving, project polishing, testing, and explanation practice to strengthen the official Chapters 1-5 skills.</p></section>
+<section class="instruction-section"><h2>Starter code</h2><pre><code>import java.util.Scanner;
+
+public class ProjectPolish {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] names = new String[3];
+        int[] scores = new int[3];
+
+        for (int i = 0; i &lt; names.length; i++) {
+            System.out.print("Name " + (i + 1) + ": ");
+            names[i] = input.nextLine();
+            System.out.print("Score: ");
+            scores[i] = input.nextInt();
+            input.nextLine();
+        }
+
+        System.out.println("Report");
+        for (int i = 0; i &lt; names.length; i++) {
+            String status = scores[i] &gt;= 60 ? "Pass" : "Needs support";
+            System.out.println(names[i] + " - " + scores[i] + " - " + status);
+        }
+        input.close();
+    }
+}</code></pre></section>
+<section class="instruction-section"><h2>Required tasks</h2><ol class="task-list"><li>Run the starter and trace the parallel arrays.</li><li>Add an average calculation.</li><li>Add a count of students who need support.</li><li>Create a test table with normal, boundary, and unusual input values.</li><li>Prepare a two-minute explanation of one loop and one condition.</li><li>Keep optional enrichment clearly separate from required features.</li></ol></section>
+<section class="instruction-section"><h2>Sample run</h2><pre><code>Name 1: Sara
+Score: 92
+Name 2: Amal
+Score: 58
+Name 3: Noura
+Score: 70
+Report
+Sara - 92 - Pass
+Amal - 58 - Needs support
+Noura - 70 - Pass</code></pre></section>
+<section class="instruction-section"><h2>Checkpoints</h2><ul class="checklist"><li>Compile before adding new features.</li><li>Run with at least two different test cases.</li><li>Trace important variables by hand before trusting the output.</li><li>Fix one error at a time and reread the first compiler message carefully.</li></ul></section>
+<section class="instruction-section"><h2>Submission</h2><p>Submit <code>ProjectPolish.java</code>, one terminal run, and a short trace or test table. Submit only your own work.</p></section>
+</main></body></html>

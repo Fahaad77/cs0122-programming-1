@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 Slides - CS0122</title>
+  <link rel="stylesheet" href="../../../assets/css/slides.css">
+  <script src="../../../assets/js/slides.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">Skip to slides</a>
+  <main class="deck-shell">
+    <section class="slide" id="slide-1"><p class="kicker">Week 5</p><h1>Loops I</h1><p>When a program repeats a task, one correct loop can replace dozens of copied statements.</p></section>
+    <section class="slide"><p class="kicker">Roadmap</p><h2>Today's teaching flow</h2><div class="flow"><span class="node">Hook</span><span class="arrow">-&gt;</span><span class="node">Concept</span><span class="arrow">-&gt;</span><span class="node">Visual Model</span><span class="arrow">-&gt;</span><span class="node">Syntax</span><span class="arrow">-&gt;</span><span class="node">Simple Example</span><span class="arrow">-&gt;</span><span class="node">Full Program</span><span class="arrow">-&gt;</span><span class="node">Predict</span></div><div class="flow"><span class="node">Run</span><span class="arrow">-&gt;</span><span class="node">Trace</span><span class="arrow">-&gt;</span><span class="node">Modify</span><span class="arrow">-&gt;</span><span class="node">Debug</span><span class="arrow">-&gt;</span><span class="node">Practice</span><span class="arrow">-&gt;</span><span class="node">Lab</span><span class="arrow">-&gt;</span><span class="node">Recap</span></div></section>
+    <section class="slide"><p class="kicker">Learning Goals</p><h2>By the end of Week 5</h2><ul><li>Explain initialization, condition, body, update, and iteration.</li><li>Write while loops for condition-based repetition.</li><li>Write for loops for known-count repetition.</li><li>Trace counters, sums, and sentinel-controlled input.</li><li>Debug common infinite-loop mistakes.</li></ul></section>
+    <section class="slide slide-section"><p class="kicker">Section 01</p><h2>Why loops?</h2><p>Loops repeat a block while a condition remains true.</p><div class="flow"><span class="node">Initialize</span><span class="arrow">-&gt;</span><span class="node">Check</span><span class="arrow">-&gt;</span><span class="node">Body</span><span class="arrow">-&gt;</span><span class="node">Update</span></div></section>
+    <section class="slide"><p class="kicker">Vocabulary</p><h2>Four loop parts</h2><ul><li><strong>Initialization:</strong> starting value.</li><li><strong>Condition:</strong> boolean question.</li><li><strong>Body:</strong> repeated statements.</li><li><strong>Update:</strong> progress toward stopping.</li></ul></section>
+    <section class="slide"><p class="kicker">Syntax</p><h2>while loop</h2><pre><code>int counter = 1;
+while (counter &lt;= 10) {
+    System.out.println(counter);
+    counter++;
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Print 1 to 10 with while</h2><pre><code>public class WhileOneToTen {
+    public static void main(String[] args) {
+        int number = 1;
+        while (number &lt;= 10) {
+            System.out.println(number);
+            number++;
+        }
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Trace</p><h2>Counter timeline</h2><table class="trace-table"><thead><tr><th>Iteration</th><th>Before body</th><th>Printed</th><th>After update</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td><td>2</td></tr><tr><td>2</td><td>2</td><td>2</td><td>3</td></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td></tr><tr><td>10</td><td>10</td><td>10</td><td>11</td></tr><tr><td>stop</td><td>11</td><td>condition false</td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Debug</p><h2>Infinite loop pattern</h2><pre><code>int number = 1;
+while (number &lt;= 10) {
+    System.out.println(number);
+    // missing number++
+}</code></pre></section>
+    <section class="slide slide-section"><p class="kicker">Section 02</p><h2>for loops</h2><p>A for loop keeps count-controlled repetition details in one header.</p></section>
+    <section class="slide"><p class="kicker">Syntax</p><h2>for loop anatomy</h2><pre><code>for (int i = 1; i &lt;= 10; i++) {
+    System.out.println(i);
+}</code></pre><div class="flow"><span class="node">int i = 1</span><span class="arrow">-&gt;</span><span class="node">i <= 10</span><span class="arrow">-&gt;</span><span class="node">body</span><span class="arrow">-&gt;</span><span class="node">i++</span></div></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Print 1 to 10 with for</h2><pre><code>public class ForOneToTen {
+    public static void main(String[] args) {
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Example</p><h2>Count backwards</h2><pre><code>for (int i = 10; i &gt;= 1; i--) {
+    System.out.println(i);
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Sum numbers 1 to N</h2><pre><code>import java.util.Scanner;
+
+public class SumToN {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("N: ");
+        int n = input.nextInt();
+        int sum = 0;
+        for (int i = 1; i &lt;= n; i++) {
+            sum += i;
+        }
+        System.out.println("Sum = " + sum);
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Full Program</p><h2>Multiplication table</h2><pre><code>import java.util.Scanner;
+
+public class TableForNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = input.nextInt();
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+        }
+        input.close();
+    }
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Sentinel</p><h2>Repeat input until stop value</h2><pre><code>int total = 0;
+System.out.print("Value, 0 to stop: ");
+int value = input.nextInt();
+while (value != 0) {
+    total += value;
+    System.out.print("Value, 0 to stop: ");
+    value = input.nextInt();
+}</code></pre></section>
+    <section class="slide"><p class="kicker">Compare</p><h2>while vs for</h2><table class="trace-table"><thead><tr><th>Use for</th><th>Use while</th></tr></thead><tbody><tr><td>Known number of repetitions</td><td>Unknown repetitions</td></tr><tr><td>Count 1 to 10</td><td>Repeat until valid input</td></tr><tr><td>Traverse fixed range</td><td>Sentinel-controlled input</td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Predict</p><h2>How many iterations?</h2><table class="trace-table"><thead><tr><th>Loop</th><th>Iterations</th><th>Last printed</th></tr></thead><tbody><tr><td>for (int i=0; i<5; i++)</td><td></td><td></td></tr><tr><td>for (int i=10; i>=2; i-=2)</td><td></td><td></td></tr><tr><td>while (value != 0) with inputs 4, 7, 0</td><td></td><td></td></tr></tbody></table></section>
+    <section class="slide"><p class="kicker">Lab</p><h2>Loop statistics app</h2><p>Use while for repeated input and for for a known-count table.</p></section>
+    <section class="slide"><p class="kicker">Recap</p><h2>Loop safety checklist</h2><ul><li>Initialize before checking.</li><li>Condition must eventually become false.</li><li>Update the right variable.</li><li>Trace before running.</li></ul></section>
+    <nav class="controls" aria-label="Slide controls"><a class="home-link" href="../index.html">Week Home</a><button type="button" data-prev>Previous</button><span><span data-current-slide></span> / <span data-total-slides></span></span><button type="button" data-next>Next</button><button type="button" data-notes>Notes</button></nav>
+    <aside class="notes-panel" data-notes-panel hidden><h2>Speaker Notes</h2><div data-notes-content></div></aside>
+  </main>
+</body>
+</html>
