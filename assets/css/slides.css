@@ -291,6 +291,7 @@ a { color: var(--primary-strong); }
   border: 2px solid var(--primary);
   padding: 0.7rem 0.9rem;
   background: white;
+  color: var(--ink);
   font-weight: 900;
   min-width: 6.5rem;
   text-align: center;
